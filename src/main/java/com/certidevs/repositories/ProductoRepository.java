@@ -24,6 +24,9 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     // existe por nombre ignorando la capitalización
     boolean existsByNombreIgnoreCase(String nombre);
 
+    // contar por stock
+    long countByStock(Integer stock);
+
 
     // consultas JPQL
 
