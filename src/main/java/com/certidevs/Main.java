@@ -37,6 +37,33 @@ public class Main {
         // guardar productos de golpe
         // productoRepository.saveAll(List.of(manzana, yogur, avena, queso, aguacate));
 
+        System.out.println("Productos guardados: " + productoRepository.findAll());
+
+        System.out.println("Número total de productos: " + productoRepository.count());
+
+        // probar métodos y consultas
+
+        // probar Producto findByNombreIgnoreCase(String nombre)
+        String nombreBuscado = "manzana"; // en minúscula
+        Producto productoEncontrado = productoRepository.findByNombreIgnoreCase(nombreBuscado);
+        if (productoEncontrado != null) {
+            System.out.println("Producto encontrado por nombre '" + nombreBuscado +
+                    "': " + productoEncontrado);
+        } else {
+            System.out.println("No se encontró ningún producto con el nombre: " + nombreBuscado);
+        }
+
+        // probar List<Producto> findByPrecioLessThan(Double precio)
+        Double precioMaximo = 3.00;
+        List<Producto> productosBaratos = productoRepository.findByPrecioLessThan(precioMaximo);
+        System.out.println("Productos con precio menor que " + precioMaximo + ":");
+        for (Producto producto : productosBaratos) {
+            System.out.println("\t " + producto.getNombre() + ": " + producto.getPrecio() + "euros");
+        }
+
+
+
+
 
     }
 }
