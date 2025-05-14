@@ -19,15 +19,21 @@ public class Producto {
 
     private Boolean disponible;
 
+    // MUCHOS productos pueden pertenecer a UNA categoría
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
     // constructor vacío
     public Producto () {}
 
     // constructor con parámetros
-    public Producto(String nombre, Double precio, Integer stock, Boolean disponible) {
+    public Producto(String nombre, Double precio, Integer stock, Boolean disponible, Categoria categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
         this.disponible = disponible;
+        this.categoria = categoria;
     }
 
     // getters y setters
@@ -71,6 +77,10 @@ public class Producto {
         this.disponible = disponible;
     }
 
+    public Categoria getCategoria() { return categoria; }
+
+    public void setCategoria(Categoria categoria) { this.categoria = categoria; }
+
     // método toString
     @Override
     public String toString() {
@@ -80,6 +90,7 @@ public class Producto {
                 ", precio=" + precio +
                 ", stock=" + stock +
                 ", disponible=" + disponible +
+                ", categoria=" + categoria +
                 '}';
     }
 }
