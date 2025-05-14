@@ -1,7 +1,9 @@
 package com.certidevs;
 
 
+import com.certidevs.entities.Categoria;
 import com.certidevs.entities.Producto;
+import com.certidevs.repositories.CategoriaRepository;
 import com.certidevs.repositories.ProductoRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,15 +19,24 @@ public class Main {
         // inicializar spring
 		ApplicationContext spring = SpringApplication.run(Main.class, args);
 
-        // obtener repositorio (lo crea spring)
+        // obtener repositorios (lo crea spring)
         ProductoRepository productoRepository = spring.getBean(ProductoRepository.class);
+        CategoriaRepository categoriaRepository = spring.getBean(CategoriaRepository.class);
+
+        // crear categorías
+        Categoria frutas = new Categoria("Frutas", "Productos frescos");
+        Categoria lacteos = new Categoria("Lácteos", "Productos derivados de la leche");
+        Categoria cereales = new Categoria("Cereales", "Alimentos a base de granos y cereales");
+
+        // guardar categorías
+        categoriaRepository.saveAll(List.of(frutas, lacteos, cereales));
 
         // crear productos
-        Producto manzana = new Producto("Manzana", 1.50, 100, true);
-        Producto yogur = new Producto("Yogur", 2.00, 50, true);
-        Producto avena = new Producto("Avena", 3.50, 30, true);
-        Producto queso = new Producto("Queso", 7.50, 100, true);
-        Producto aguacate = new Producto("Aguacate", 5.00, 0, false);
+        Producto manzana = new Producto("Manzana", 1.50, 100, true, frutas);
+        Producto yogur = new Producto("Yogur", 2.00, 50, true, lacteos);
+        Producto avena = new Producto("Avena", 3.50, 30, true, cereales);
+        Producto queso = new Producto("Queso", 7.50, 100, true, lacteos);
+        Producto aguacate = new Producto("Aguacate", 5.00, 0, false, frutas);
 
         // guardar productos
         productoRepository.save(manzana);
