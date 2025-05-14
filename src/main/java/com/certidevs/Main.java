@@ -104,5 +104,17 @@ public class Main {
 
         System.out.println("Total de productos en el rango: " + productosEnRango.size());
 
+        // probar List<Producto> findByCategoria_Nombre(String nombre)
+        String categoriaBuscada = "Frutas";
+        List<Producto> productosEnCategoria = productoRepository.findByCategoria_Nombre(categoriaBuscada);
+        System.out.println("Productos en la categoría " + categoriaBuscada + ":");
+        if (productosEnCategoria.isEmpty()) {
+            System.out.println("No se han encontrado productos en la categoría " + categoriaBuscada);
+        } else {
+            for (Producto producto : productosEnCategoria) {
+                System.out.println("- " + producto.getNombre() + " (" + producto.getCategoria().getNombre() + ")" + ": " + producto.getPrecio() + " euros");
+            }
+        }
+
     }
 }

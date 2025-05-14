@@ -27,6 +27,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     // contar por stock
     long countByStock(Integer stock);
 
+    // encontrar productos por nombre de categoría
+    List<Producto> findByCategoria_Nombre(String nombre);
 
     // consultas JPQL
 
