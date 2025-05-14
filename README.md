@@ -3,6 +3,7 @@
 - Crear entidad Asignatura: https://app.certidevs.com/code-exam/e6a0c6d9-b18b-4e9b-a70c-5931164f9cfa
 - Entidad y repositorio: https://app.certidevs.com/code-exam/56db9c44-e4f1-4732-abe8-a0dc6e7c0da8
 - Métodos derivados y consultas JPQL en repositorios: https://app.certidevs.com/code-exam/912a460d-1c7b-431c-9d9d-9659fed166d2
+- Relación ManyToOne con Tarea y Proyecto: https://app.certidevs.com/project-exam/0ddc1351-0c41-4f79-a98b-2b5ca2080529
 
 ## TRADUCCIONES
 
