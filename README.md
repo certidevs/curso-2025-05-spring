@@ -6,6 +6,32 @@
 
 ## TRADUCCIONES
 
+- `Entity` -> Entidad
+- `Repository` -> Repositorio
+- `GeneratedValue` -> Valor generado
+- `IDENTITY` -> Identidad
+
+- `new` -> Nuevo
+
+- `Table` -> Tabla
+- `name` -> Nombre
+
+- `OneToOne` -> Uno a uno
+- `OneToMany` -> Uno a muchos
+- `ManyToOne` -> Muchos a uno
+- `ManyToMany` -> Muchos a muchos
+
+- `Is` -> Es (por defecto)
+- `Like` -> Como (parecido a)
+- `NotLike` -> No como (no parecido a)
+- `StartsWith` -> Empieza con
+- `EndsWith` -> Acaba con
+- `Empty` -> Vacío
+- `NotEmpty` -> No vacío
+- `True` -> Verdadero
+- `False` -> Falso
+- `Contains` -> Contiene
+- `NotContains` -> No contiene
 - `Between` -> Entre
 - `LessThan` -> Menor que/Menos que
 - `LessThanEqual` -> Menor o igual que/Menos o igual que
