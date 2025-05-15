@@ -164,4 +164,50 @@ class ProductoRepositoryTest {
         assertEquals(0, products3.size());
     }
 
+
+    @Test
+    void buscarProductos1() {
+        List<Producto> products = productoRepository.findAll();
+        System.out.println(products);
+    }
+
+    @Test
+    void buscarProductos2() {
+        List<Producto> products = productoRepository.findAll();
+        products.forEach(System.out::println);
+    }
+
+    @Test
+    void buscarProductos3() {
+        List<Producto> products = productoRepository.findAll();
+        for (Producto product : products) {
+            System.out.println(product);
+        }
+    }
+    @Test
+    void buscarProductos4() {
+        List<Producto> products = productoRepository.findAll();
+        for (Producto product : products) {
+            if(product.getDisponible()) {
+                System.out.println(product);
+            }
+        }
+    }
+    @Test
+    void buscarProductos5() {
+        List<Producto> productsDisponibles = productoRepository.findAllByDisponibleTrue();
+        for (Producto product : productsDisponibles) {
+            System.out.println(product);
+        }
+    }
+
+//    @Test
+//    void buscarProductos3() {
+//        List<Producto> products = productoRepository.findAll();
+//        Model model = ...
+//        model.addAttribute("productos", products);
+//        return "listado-productos";
+//    }
+
+
 }

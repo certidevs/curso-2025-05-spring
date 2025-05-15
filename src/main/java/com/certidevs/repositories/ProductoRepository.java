@@ -38,6 +38,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
     List<Producto> findByCategoria_Id(Long id);
 
+    List<Producto> findAllByDisponibleTrue();
+
     // si la propiedad no existe entonces dará un fallo en el arranque
     // List<Producto> findByUsuario_Id(Long id);
 
