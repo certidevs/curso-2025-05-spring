@@ -20,6 +20,8 @@ class ProductoRepositoryTest {
     // Inyección de dependencias - inyectamos el objeto categoriaRepository para poder usarlo
     @Autowired
     CategoriaRepository categoriaRepository;
+    @Autowired
+    ProductoRepository productoRepository;
 
     @Test
     @DisplayName("Crear objeto Producto con Categoria - sin guardar en DB")
@@ -39,6 +41,25 @@ class ProductoRepositoryTest {
     void guardarCategoriaTest() {
         Categoria ropa = new Categoria("ropa", "Artículos textiles");
         categoriaRepository.save(ropa);
+
+        assertNotNull(ropa.getId());
+        System.out.println(ropa.getId());
+        assertEquals(1L, ropa.getId());
+    }
+
+    @Test
+    void guardarProductoConCategoriaTest() {
+
+        Categoria ropa = new Categoria("cat2", "cat2");
+        Producto p1 = new Producto("p1", 19.99, 1, true, ropa);
+
+        productoRepository.save(p1);
+
+        assertNotNull(p1);
+        assertNotNull(p1.getId());
+        assertNotNull(ropa);
         assertNotNull(ropa.getId());
     }
+
+
 }
