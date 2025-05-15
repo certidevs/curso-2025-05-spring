@@ -106,4 +106,36 @@ class ProductoRepositoryTest {
             System.out.println(producto.getNombre());
         }
     }
+
+    @Test
+    void borrarProducto() {
+
+        Producto p1 = new Producto("p1", 19.99, 1, true, null);
+        productoRepository.save(p1);
+        Long productId = p1.getId();
+
+        assertTrue(productoRepository.existsById(productId));
+
+        productoRepository.deleteById(productId);
+
+        assertFalse(productoRepository.existsById(productId));
+    }
+
+    @Test
+    @DisplayName("Desactivar un producto equivale a hacer un UPDATE porque lo modificamos")
+    void desactivarProducto() {
+        Producto p1 = new Producto("p1", 19.99, 1, true, null);
+        productoRepository.save(p1);
+
+        Optional<Producto> productOpt = productoRepository.findById(p1.getId());
+        if (productOpt.isPresent()) {
+            Producto producto = productOpt.get();
+            System.out.println(producto.getNombre());
+            producto.setDisponible(false); // desactivar producto
+            productoRepository.save(producto);
+            assertFalse(producto.getDisponible());
+        }
+    }
+
+
 }
