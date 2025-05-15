@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,7 +47,11 @@ class ProductoRepositoryTest {
 
         assertNotNull(ropa.getId());
         System.out.println(ropa.getId());
-        assertEquals(1L, ropa.getId());
+
+        // CUIDADO: si se ejecuta otro test puede hacer que este ID sea diferente y no sea 1L
+        // assertEquals(1L, ropa.getId());
+        assertTrue(ropa.getId() >= 1);
+
     }
 
     // CRUD - Create Read Update Delete
@@ -137,5 +142,26 @@ class ProductoRepositoryTest {
         }
     }
 
+    @Test
+    @DisplayName("Buscar todos los productos asociados a una categoría")
+    void buscarProductosPorCategoria() {
+
+        Categoria ropa = new Categoria("cat2", "cat2");
+        categoriaRepository.save(ropa); // se genera un id
+
+        Producto p1 = new Producto("p1", 19.99, 1, true, ropa);
+        productoRepository.save(p1);
+        Producto p2 = new Producto("p2", 19.99, 1, true, ropa);
+        productoRepository.save(p2);
+
+        List<Producto> products1 = productoRepository.findByCategoria_Nombre("cat2");
+        List<Producto> products2 = productoRepository.findByCategoria_Id(1L);
+
+        assertTrue(products1.size() == 2);
+        assertEquals(2, products2.size());
+
+        List<Producto> products3 = productoRepository.findByCategoria_Id(999L); // No existe
+        assertEquals(0, products3.size());
+    }
 
 }

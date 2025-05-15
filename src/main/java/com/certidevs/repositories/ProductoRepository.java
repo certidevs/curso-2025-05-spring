@@ -36,6 +36,12 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     @Query("select p from Producto p where p.precio between :precioStart and :precioEnd")
     List<Producto> findByPrecioBetween(Double precioStart, Double precioEnd);
 
+    List<Producto> findByCategoria_Id(Long id);
+
+    // si la propiedad no existe entonces dará un fallo en el arranque
+    // List<Producto> findByUsuario_Id(Long id);
+
+
     // @Query("select p from Producto p where p.precio between :precioMinimo and :precioMaximo")
     // List<Producto> findByPrecioBetween(@Param("precioMinimo") Double min, @Param("precioMaximo") Double max);
 
