@@ -13,7 +13,7 @@ public class HelloController {
         return "hello"; // nombre archivo html (hello.html)
     }
 
-    @GetMapping("info")
+    @GetMapping("info") // localhost:8080/info
     public String informacion(Model model) {
         // añadir datos al modelo
         model.addAttribute("desarrollador", "M. del Olmo");
