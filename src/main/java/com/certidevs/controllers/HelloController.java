@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HelloController {
 
-    @GetMapping("hola")
+    @GetMapping("hola") // http://localhost:8080/hola
     public String saludar() {
         return "hello"; // nombre archivo html (hello.html)
     }
