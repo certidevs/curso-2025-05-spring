@@ -46,6 +46,18 @@
 - `Null` -> Nulo (null)
 - `NotNull` -> No nulo (no null)
 
+
+### Spring Boot Devtools
+Permitir reinicios rápidos y automáticos cuando se hacen cambios en la aplicación.
+
+Marcas las siguientes opciones:
+
+- `Settings` > `Build, Execution, Deployment > Compiler` > `Build project automatically`
+    ![img_3.png](img_3.png)
+- `Settings` > `Advanced Settings` > `Compiler` > `Allow auto-make to start even if developed application is currently running`
+    ![img_4.png](img_4.png)
+
+
 ### Cómo hacer un fork del proyecto
 
 Un fork es una copia del repositorio que yo puedo editar y subir cambios (porque es mi repositorio).
