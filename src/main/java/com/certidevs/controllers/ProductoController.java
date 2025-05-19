@@ -1,11 +1,7 @@
-package com.certidevs.controller;
+package com.certidevs.controllers;
 
-import com.certidevs.entities.Producto;
 import com.certidevs.repositories.ProductoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-import java.util.List;
 
 @Controller
 public class ProductoController {
