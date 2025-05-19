@@ -52,10 +52,21 @@ Permitir reinicios rápidos y automáticos cuando se hacen cambios en la aplicac
 
 Marcas las siguientes opciones:
 
-- `Settings` > `Build, Execution, Deployment > Compiler` > `Build project automatically`
+1. `Settings` > `Build, Execution, Deployment > Compiler` > `Build project automatically`
     ![img_3.png](img_3.png)
-- `Settings` > `Advanced Settings` > `Compiler` > `Allow auto-make to start even if developed application is currently running`
+2. `Settings` > `Advanced Settings` > `Compiler` > `Allow auto-make to start even if developed application is currently running`
     ![img_4.png](img_4.png)
+3. Agregar dependencia Spring Boot Devtools al `pom.xml`:
+    ```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <scope>runtime</scope>
+        <optional>true</optional>
+    </dependency>
+    ```
+4. Agregar línea a `application.properties`:
+  `spring.thymeleaf.cache=false`
 
 
 ### Cómo hacer un fork del proyecto
