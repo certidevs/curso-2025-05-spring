@@ -5,6 +5,10 @@
 - Métodos derivados y consultas JPQL en repositorios: https://app.certidevs.com/code-exam/912a460d-1c7b-431c-9d9d-9659fed166d2
 - Relación ManyToOne con Tarea y Proyecto: https://app.certidevs.com/project-exam/0ddc1351-0c41-4f79-a98b-2b5ca2080529
 
+## PROYECTO VACÍO
+Hacer fork al proyecto y clonar desde TU cuenta (no la de MdelOlmoCode): https://github.com/MdelolmoCode/proyecto-base
+
+
 ## TRADUCCIONES
 
 - `Entity` -> Entidad
@@ -84,3 +88,11 @@ Pasos para hacer un fork:
 5. Pulsar el botón "Create fork"
 ![img_2.png](img_2.png)
 6. Copiar la nueva url desde tu cuenta y clonar el proyecto en el IDE que se quiera
+
+
+## Cómo actualizar un fork
+
+1. En github.com, entrar en tu repositorio forkeado
+2. Actualizar el repositorio dándole `Sync fork` y a `Update branch`
+![img_5.png](img_5.png)
+3. Actualizar proyecto con un Pull dándole a `Update Project` en Intellij IDEA
