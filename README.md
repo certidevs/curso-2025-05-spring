@@ -50,6 +50,12 @@ Hacer fork al proyecto y clonar desde TU cuenta (no la de MdelOlmoCode): https:/
 - `Null` -> Nulo (null)
 - `NotNull` -> No nulo (no null)
 
+- `table` -> tabla/mesa
+- `head` -> cabeza
+- `header` -> header
+- `row` -> fila
+- `body` -> cuerpo
+
 
 ### Spring Boot Devtools
 Permitir reinicios rápidos y automáticos cuando se hacen cambios en la aplicación.
