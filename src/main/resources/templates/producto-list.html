@@ -7,8 +7,13 @@
 </head>
 <body>
         <h1>Listado de productos</h1>
+        <button type="button">Crear nuevo producto</button>
 
-        <table>
+        <div th:if="${productos.isEmpty()}">
+            <p>No hay productos disponibles en este momento.</p>
+        </div>
+
+        <table th:unless="${productos.isEmpty()}">
             <thead>
             <tr>
                 <th>ID</th>
@@ -25,9 +30,14 @@
                     <td th:text="${producto.id}"></td>
                     <td th:text="${producto.nombre}"></td>
                     <td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)} + ' €'"></td>
-                    <td th:text="${producto.stock}"></td>
+                    <td th:text="${producto.stock} + (${producto.stock == 1} ? ' Ud.' : ' Uds.')"></td>
                     <td th:text="${producto.disponible ? 'Sí' : 'No'}"></td>
-                    <td th:text="${producto.categoria.nombre}"></td>
+                    <td th:text="${producto.categoria != null ? producto.categoria.nombre : 'Sin categoría'}"></td>
+                    <td>
+                        <button type="button">Ver detalle</button>
+                        <button type="button">Editar</button>
+                        <button type="button">Borrar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

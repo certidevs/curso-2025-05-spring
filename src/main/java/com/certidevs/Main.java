@@ -35,7 +35,7 @@ public class Main {
         Producto manzana = new Producto("Manzana", 1.50, 100, true, frutas);
         Producto yogur = new Producto("Yogur", 2.00, 50, true, lacteos);
         Producto avena = new Producto("Avena", 3.50, 30, true, cereales);
-        Producto queso = new Producto("Queso", 7.50, 100, true, lacteos);
+        Producto queso = new Producto("Queso", 7.50, 1, true, null);
         Producto aguacate = new Producto("Aguacate", 5.00, 0, false, frutas);
 
         // guardar productos
