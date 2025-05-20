@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalle de producto</title>
+</head>
+<body>
+    <h1>Detalle de producto</h1>
+
+    <div th:if="${error}">
+        <p th:text="${error}"></p>
+    </div>
+
+    <div th:if="${producto}">
+        <h2 th:text="${producto.nombre}"></h2>
+
+        <div>
+            <strong>ID:</strong> <span th:text="${producto.id}"></span>
+        </div>
+        <div>
+            <strong>Precio:</strong> <span th:text="${#numbers.formatDecimal(producto.precio, 1, 2)} + ' €'"></span>
+        </div>
+        <div>
+            <strong>Stock:</strong> <span th:text="${producto.stock}"></span>
+        </div>
+        <div>
+            <strong>Disponible:</strong> <span th:text="${producto.disponible ? 'Sí' : 'No'}"></span>
+        </div>
+        <div th:if="${producto.categoria != null}">
+            <strong>Categoría:</strong> <span th:text="${producto.categoria.nombre}"></span>
+        </div>
+    </div>
+</body>
+</html>
