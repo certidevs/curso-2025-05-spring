@@ -6,7 +6,9 @@ import com.certidevs.repositories.ProductoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,6 +55,14 @@ public class ProductoController {
         model.addAttribute("categorias", categoriaRepository.findAll());
 
         return "producto-form";
+    }
+
+    // procesar formulario (crear o actualizar)
+    @PostMapping("/productos") // podría ser @PostMapping("/productos/form") si en el formulario pusiera th:action="@{/productos/form}"
+    public String saveForm(@ModelAttribute Producto producto) {
+        productoRepository.save(producto);
+
+        return "redirect:/productos";
     }
 
 }
