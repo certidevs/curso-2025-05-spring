@@ -43,4 +43,12 @@ public class ProductoController {
         return "producto-detail";
     }
 
+    // mostrar formulario para crear nuevo producto
+    @GetMapping("/productos/nuevo")
+    public String createForm(Model model) {
+        model.addAttribute("producto", new Producto());
+
+        return "producto-form";
+    }
+
 }
