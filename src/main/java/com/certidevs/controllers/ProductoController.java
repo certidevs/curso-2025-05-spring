@@ -57,6 +57,21 @@ public class ProductoController {
         return "producto-form";
     }
 
+    // mostrar formulario para editar producto existente
+    @GetMapping("/productos/{id}/editar")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Producto> productoOpt = productoRepository.findById(id);
+
+        if (productoOpt.isPresent()) {
+            model.addAttribute("producto", productoOpt.get());
+            model.addAttribute("categorias", categoriaRepository.findAll());
+        } else {
+            model.addAttribute("error", "Producto no encontrado");
+        }
+
+        return "producto-form";
+    }
+
     // procesar formulario (crear o actualizar)
     @PostMapping("/productos") // podría ser @PostMapping("/productos/form") si en el formulario pusiera th:action="@{/productos/form}"
     public String saveForm(@ModelAttribute Producto producto) {
