@@ -9,5 +9,76 @@
 
     <h1>Crear o modificar producto</h1>
 
+    <form th:action="@{/productos}" th:object="${producto}" method="post">
+
+        <!-- campo oculto para ID -->
+        <input type="hidden" th:field="*{id}">
+
+        <!-- nombre del producto -->
+        <div>
+            <label for="nombre">Nombre del producto:</label>
+            <input type="text"
+                   id="nombre"
+                   th:field="*{nombre}"
+                   placeholder="Ingrese el nombre del producto"
+                   required>
+        </div>
+        <br>
+
+        <!-- precio -->
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number"
+                   id="precio"
+                   th:field="*{precio}"
+                   step="0.01"
+                   min="0"
+                   placeholder="0.00">
+        </div>
+        <br>
+
+        <!-- stock -->
+        <div>
+            <label for="stock">Stock:</label>
+            <input type="number"
+                   id="stock"
+                   th:field="*{stock}"
+                   min="0"
+                   placeholder="0">
+        </div>
+        <br>
+
+        <!-- disponible -->
+        <div>
+            <input type="checkbox"
+                   id="disponible"
+                   th:field="*{disponible}">
+            <label for="disponible">Producto disponible</label>
+        </div>
+        <br>
+
+        <!-- categoría -->
+        <div>
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" th:field="*{categoria}">
+                <option value="">Seleccione una categoría</option>
+                <option th:each="cat : ${categorias}"
+                        th:value="${cat.id}"
+                        th:text="${cat.nombre}">
+                </option>
+            </select>
+        </div>
+        <br>
+
+        <!-- botones -->
+        <div>
+            <a th:href="@{/productos}">Cancelar</a>
+            <button type="submit">
+                Guardar
+            </button>
+        </div>
+
+    </form>
+
 </body>
 </html>

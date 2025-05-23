@@ -1,6 +1,7 @@
 package com.certidevs.controllers;
 
 import com.certidevs.entities.Producto;
+import com.certidevs.repositories.CategoriaRepository;
 import com.certidevs.repositories.ProductoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +16,11 @@ import java.util.Optional;
 public class ProductoController {
 
     private ProductoRepository productoRepository;
+    private CategoriaRepository categoriaRepository;
 
-    public ProductoController(ProductoRepository productoRepository) {
+    public ProductoController(ProductoRepository productoRepository, CategoriaRepository categoriaRepository) {
         this.productoRepository = productoRepository;
+        this.categoriaRepository = categoriaRepository;
     }
 
     // anotación que mapea las peticiones GET a la URL "/productos"
@@ -47,6 +50,7 @@ public class ProductoController {
     @GetMapping("/productos/nuevo")
     public String createForm(Model model) {
         model.addAttribute("producto", new Producto());
+        model.addAttribute("categorias", categoriaRepository.findAll());
 
         return "producto-form";
     }
