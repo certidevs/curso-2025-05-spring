@@ -39,7 +39,7 @@
 <body>
 <div class="container">
     <h1>Listado de productos</h1>
-    <button type="button">Crear nuevo producto</button>
+    <a th:href="@{/productos/nuevo}">Crear nuevo producto</a>
 
     <div th:if="${productos.isEmpty()}">
         <p>No hay productos disponibles en este momento.</p>
