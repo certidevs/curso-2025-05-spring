@@ -80,4 +80,11 @@ public class ProductoController {
         return "redirect:/productos";
     }
 
+    // eliminar producto
+    @PostMapping("/productos/{id}/eliminar")
+    public String delete(@PathVariable Long id) {
+        productoRepository.deleteById(id);
+
+        return "redirect:/productos";
+    }
 }
