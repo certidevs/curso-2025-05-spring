@@ -32,7 +32,7 @@
   * Luis Miguel Haro
 
 * Grupo 5: Biblioteca (La casa del libro)
-  * Entidades JPA `@Entity`: Libro, Author, Categoria, Usuario, Reserva o Compra
+  * Entidades JPA `@Entity`: Libro, Autor, Categoria, Usuario, Reserva o Compra
   * Francisco Domínguez
   * Rafael Sepulveda
   * Manuel Fernández
