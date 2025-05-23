@@ -7,7 +7,13 @@
 </head>
 <body>
 
-    <h1>Crear o modificar producto</h1>
+    <h1 th:if="${producto.id != null}">
+        Modificar producto <span th:text="${producto.id}"></span>
+    </h1>
+    <h1 th:if="${producto.id == null}">Crear nuevo producto</h1>
+
+    <!-- con operador ternario -->
+    <h1 th:text="${producto.id != null ? 'Modificar producto ' + producto.id : 'Crear nuevo producto'}" ></h1>
 
     <form th:action="@{/productos}" th:object="${producto}" method="post">
 
@@ -61,7 +67,7 @@
         <div>
             <label for="categoria">Categoría:</label>
             <select id="categoria" th:field="*{categoria}">
-                <option value="">Seleccione una categoría</option>
+                <option value="">-- Seleccione una categoría --</option>
                 <option th:each="cat : ${categorias}"
                         th:value="${cat.id}"
                         th:text="${cat.nombre}">
@@ -74,11 +80,12 @@
         <div>
             <a th:href="@{/productos}">Cancelar</a>
             <button type="submit">
-                Guardar
+                <span th:if="${producto.id != null}">Actualizar</span>
+                <span th:if="${producto.id == null}">Guardar</span>
+                <!-- operador ternario -->
+                <!--<span th:text="${producto.id != null ? 'Actualizar' : 'Guardar'}"></span>-->
             </button>
         </div>
-
     </form>
-
 </body>
 </html>
