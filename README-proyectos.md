@@ -1,4 +1,10 @@
 
+Tecnologías:
+* Spring Boot
+* HTML, Bootstrap CSS
+* Thymeleaf
+* Base de datos: H2 y eventualmente MySQL
+* Git y GitHub
 
 * Grupo 1: Gestor de tareas
   * Entidades JPA `@Entity`: Tarea, Proyecto, Categoria, Usuario, Comentario
@@ -28,7 +34,6 @@
   * Lara Mendez
   * Alejandro Dietta
   * David de la Puente
-  * Jesica Grimaldi
   * Luis Miguel Haro
 
 * Grupo 5: Biblioteca (La casa del libro)
@@ -79,7 +84,9 @@ Requisitos:
 
 ## PRESENTACIÓN PROYECTOS
 
-02/07/2025
+26/06/2025 ensayo con mentores
+
+02/07/2025 presentación a empresas
 
 Cada grupo presenta el proyecto en 15 minutos.
 
@@ -100,3 +107,8 @@ Cada grupo presenta el proyecto en 15 minutos.
   * Aprender Java, Spring Boot, crear aplicación full stack web desde cero
   * Aprender a crear modelos de datos esquemas de base de datos
   * Ideas futuras: capa seguridad, distintos roles de usuario, agregar X funcionalidades, dashboard de compras realizadas
+
+## REUNION CON MENTORES
+
+* Lunes 26/05/2025 12:30 grupo1, grupo2, grupo3
+* Lunes 26/05/2025 13:00 grupo4, grupo5
