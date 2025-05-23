@@ -69,7 +69,9 @@
                 <td>
                     <a th:href="@{/productos/{id}(id=${producto.id})}">Ver detalle</a>
                     <a th:href="@{/productos/{id}/editar(id=${producto.id})}">Editar</a>
-                    <button type="button">Borrar</button>
+                    <form th:action="@{/productos/{id}/eliminar(id=${producto.id})}" method="post">
+                        <button type="submit">Borrar</button>
+                    </form>
                 </td>
             </tr>
         </tbody>
