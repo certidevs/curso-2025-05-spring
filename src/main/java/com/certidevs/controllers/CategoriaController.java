@@ -1,6 +1,6 @@
 package com.certidevs.controllers;
 
-public class CategoryController {
+public class CategoriaController {
 
 
 }
