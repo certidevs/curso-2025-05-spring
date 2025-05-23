@@ -68,7 +68,7 @@
                 <td th:text="${producto.categoria != null ? producto.categoria.nombre : 'Sin categoría'}"></td>
                 <td>
                     <a th:href="@{/productos/{id}(id=${producto.id})}">Ver detalle</a>
-                    <button type="button">Editar</button>
+                    <a th:href="@{/productos/{id}/editar(id=${producto.id})}">Editar</a>
                     <button type="button">Borrar</button>
                 </td>
             </tr>
