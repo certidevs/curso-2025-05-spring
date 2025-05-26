@@ -27,9 +27,10 @@ public class Main {
         Categoria frutas = new Categoria("Frutas", "Productos frescos");
         Categoria lacteos = new Categoria("Lácteos", "Productos derivados de la leche");
         Categoria cereales = new Categoria("Cereales", "Alimentos a base de granos y cereales");
+        Categoria carne = new Categoria("Carne", null);
 
         // guardar categorías
-        categoriaRepository.saveAll(List.of(frutas, lacteos, cereales));
+        categoriaRepository.saveAll(List.of(frutas, lacteos, cereales, carne));
 
         // crear productos
         Producto manzana = new Producto("Manzana", 1.50, 100, true, frutas);
