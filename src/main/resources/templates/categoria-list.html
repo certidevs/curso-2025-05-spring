@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de categorías</title>
 </head>
 <body>
+<div>
+    <h1>Lista de categorías</h1>
+    <a th:href="@{/categorias/nueva}">Crear nueva categoría</a>
 
+    <div th:if="${categorias.isEmpty()}">
+        <p>No hay categorías disponibles en este momento.</p>
+    </div>
+
+    <table th:unless="${categorias.isEmpty()}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody th:each="categoria : ${categorias}">
+        <tr>
+            <td th:text="${categoria.id}"></td>
+            <td th:text="${categoria.nombre}"></td>
+            <td th:text="${categoria.descripcion != null ? categoria.descripcion : 'Sin descripción'}"></td>
+            <td>
+                <button>Ver detalle</button>
+                <button>Editar</button>
+                <button>Borrar</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
 </body>
 </html>
