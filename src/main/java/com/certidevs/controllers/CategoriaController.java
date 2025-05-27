@@ -40,4 +40,11 @@ public class CategoriaController {
         return "categoria-detail";
     }
 
+    @GetMapping("/categorias/nueva")
+    public String createForm(Model model) {
+        model.addAttribute("categoria", new Categoria());
+
+        return "categoria-form";
+    }
+
 }
