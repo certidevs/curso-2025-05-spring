@@ -2,6 +2,7 @@ package com.certidevs.controllers;
 
 import com.certidevs.entities.Categoria;
 import com.certidevs.repositories.CategoriaRepository;
+import com.certidevs.repositories.ProductoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +17,12 @@ import java.util.Optional;
 public class CategoriaController {
 
     private CategoriaRepository categoriaRepository;
+    private final ProductoRepository productoRepository;
 
-    public CategoriaController(CategoriaRepository categoriaRepository) {
+    public CategoriaController(CategoriaRepository categoriaRepository,
+                               ProductoRepository productoRepository) {
         this.categoriaRepository = categoriaRepository;
+        this.productoRepository = productoRepository;
     }
 
     @GetMapping("/categorias") // http://localhost:8080/categorias
@@ -65,6 +69,16 @@ public class CategoriaController {
     @PostMapping("/categorias")
     public String saveForm(@ModelAttribute Categoria categoria) {
         categoriaRepository.save(categoria);
+
+        return "redirect:/categorias";
+    }
+
+    @PostMapping("categorias/{id}/eliminar")
+    public String delete(@PathVariable Long id) {
+        if (productoRepository.countByCategoria_Id(id) > 0) {
+            return "redirect:/categorias?error=true";
+        }
+        categoriaRepository.deleteById(id);
 
         return "redirect:/categorias";
     }

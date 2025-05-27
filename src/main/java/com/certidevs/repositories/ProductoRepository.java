@@ -40,6 +40,9 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
     List<Producto> findAllByDisponibleTrue();
 
+    long countByCategoria_Id(Long id);
+
+
     // si la propiedad no existe entonces dará un fallo en el arranque
     // List<Producto> findByUsuario_Id(Long id);
 
