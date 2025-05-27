@@ -29,7 +29,7 @@
             <td th:text="${categoria.nombre}"></td>
             <td th:text="${categoria.descripcion != null ? categoria.descripcion : 'Sin descripción'}"></td>
             <td>
-                <button>Ver detalle</button>
+                <a th:href="@{/categorias/{id}(id=${categoria.id})}">Ver detalle</a>
                 <button>Editar</button>
                 <button>Borrar</button>
             </td>

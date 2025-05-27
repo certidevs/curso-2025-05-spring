@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalle de categoría</title>
+</head>
+<body>
+<div>
+    <h1>Detalle de categoría</h1>
+
+    <div th:if="${error}">
+        <p th:text="${error}"></p>
+    </div>
+
+    <div th:if="${categoria}">
+        <h2 th:text="${categoria.nombre}"></h2>
+
+        <div>
+            <strong>ID:</strong> <span th:text="${categoria.id}"></span>
+        </div>
+        <div>
+            <strong>Descripción: </strong>
+            <span th:if="${categoria.descripcion != null}" th:text="${categoria.descripcion}"></span>
+            <span th:unless="${categoria.descripcion != null}">Sin descripción</span>
+            <!--<span th:text="${categoria.descripcion != null ? categoria.descripcion : 'Sin descripción'}"></span>-->
+        </div>
+    </div>
+
+    <div>
+        <a th:href="@{/categorias}">Volver al listado de categorías</a>
+    </div>
+
+</div>
+</body>
+</html>
