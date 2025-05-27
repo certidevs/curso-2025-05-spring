@@ -5,7 +5,9 @@ import com.certidevs.repositories.CategoriaRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,6 +47,26 @@ public class CategoriaController {
         model.addAttribute("categoria", new Categoria());
 
         return "categoria-form";
+    }
+
+    @GetMapping("categorias/{id}/editar")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Categoria> categoriaOpt = categoriaRepository.findById(id);
+
+        if (categoriaOpt.isPresent()) {
+            model.addAttribute("categoria", categoriaOpt.get());
+        } else {
+            model.addAttribute("error", "404 Categoría Not Found");
+        }
+
+        return "categoria-form";
+    }
+
+    @PostMapping("/categorias")
+    public String saveForm(@ModelAttribute Categoria categoria) {
+        categoriaRepository.save(categoria);
+
+        return "redirect:/categorias";
     }
 
 }
