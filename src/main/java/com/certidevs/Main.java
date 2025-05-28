@@ -3,8 +3,10 @@ package com.certidevs;
 
 import com.certidevs.entities.Categoria;
 import com.certidevs.entities.Producto;
+import com.certidevs.entities.Proveedor;
 import com.certidevs.repositories.CategoriaRepository;
 import com.certidevs.repositories.ProductoRepository;
+import com.certidevs.repositories.ProveedorRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -22,6 +24,7 @@ public class Main {
         // obtener repositorios (lo crea spring)
         ProductoRepository productoRepository = spring.getBean(ProductoRepository.class);
         CategoriaRepository categoriaRepository = spring.getBean(CategoriaRepository.class);
+        ProveedorRepository proveedorRepository = spring.getBean(ProveedorRepository.class);
 
         // crear categorías
         Categoria frutas = new Categoria("Frutas", "Productos frescos");
@@ -38,6 +41,7 @@ public class Main {
         Producto avena = new Producto("Avena", 3.50, 30, true, cereales);
         Producto queso = new Producto("Queso", 7.50, 1, true, null);
         Producto aguacate = new Producto("Aguacate", 5.00, 0, false, frutas);
+        Producto platano = new Producto("Plátano", 2.00, 5, false, frutas);
 
         // guardar productos
         productoRepository.save(manzana);
@@ -45,9 +49,46 @@ public class Main {
         productoRepository.save(avena);
         productoRepository.save(queso);
         productoRepository.save(aguacate);
+        productoRepository.save(platano);
 
         // guardar productos de golpe
         // productoRepository.saveAll(List.of(manzana, yogur, avena, queso, aguacate));
+
+        // crear proveedores
+        Proveedor proveedor1 = Proveedor.builder()
+                        .nombre("Proveedor 1")
+                        .email("proveedor1@mail.com")
+                        .telefono("111111111")
+                        .activo(true)
+                        .productos(List.of(manzana, yogur))
+                        .build();
+
+        Proveedor proveedor2 = Proveedor.builder()
+                        .nombre("Proveedor 2")
+                        .telefono("222222222")
+                        .email("proveedor2@mail.com")
+                        .activo(true)
+                        .productos(List.of(avena, queso))
+                        .build();
+
+        Proveedor proveedor3 = Proveedor.builder()
+                .nombre("Proveedor 3")
+                .email("proveedor3@mail.com")
+                .telefono("333333333")
+                .activo(true)
+                .productos(List.of(manzana, aguacate))
+                .build();
+
+        Proveedor proveedor4 = Proveedor.builder()
+                .nombre("Proveedor 4")
+                .telefono("444444444")
+                .email("proveedor4@mail.com")
+                .activo(false)
+                .productos(List.of(yogur, avena, queso))
+                .build();
+
+        // guardar proveedores
+        proveedorRepository.saveAll(List.of(proveedor1, proveedor2, proveedor3, proveedor4));
 
         System.out.println("Productos guardados: " + productoRepository.findAll());
 
