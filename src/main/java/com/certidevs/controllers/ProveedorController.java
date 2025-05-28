@@ -83,4 +83,23 @@ public class ProveedorController {
 
         return "redirect:/proveedores";
     }
+
+    // FILTROS
+    // filtrar por proveedores activos
+    @GetMapping("/proveedores/activos")
+    public String findActivos(Model model) {
+        List<Proveedor> proveedores = proveedorRepository.findByActivoTrue();
+        model.addAttribute("proveedores", proveedores);
+
+        return "proveedor/proveedor-list";
+    }
+
+    // filtrar por proveedores inactivos
+    @GetMapping("/proveedores/inactivos")
+    public String findInactivos(Model model) {
+        List<Proveedor> proveedores = proveedorRepository.findByActivoFalse();
+        model.addAttribute("proveedores", proveedores);
+
+        return "proveedor/proveedor-list";
+    }
 }

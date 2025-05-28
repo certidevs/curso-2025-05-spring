@@ -10,6 +10,11 @@
     <h1>Lista de proveedores</h1>
     <a th:href="@{/proveedores/nuevo}">Crear nuevo producto</a>
 
+    <h3>Filtros:</h3>
+    <a th:href="@{/proveedores}">Todos</a>
+    <a th:href="@{/proveedores/activos}">Solo Activos</a>
+    <a th:href="@{/proveedores/inactivos}">Solo Inactivos</a>
+
     <div th:if="${proveedores.isEmpty()}">
         <p>No hay proveedores en este momento.</p>
     </div>
