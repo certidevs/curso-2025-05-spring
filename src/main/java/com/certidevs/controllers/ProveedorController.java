@@ -75,4 +75,12 @@ public class ProveedorController {
 
         return "redirect:/proveedores";
     }
+
+    // eliminar proveedor
+    @PostMapping("/proveedores/{id}/eliminar")
+    public String delete(@PathVariable Long id) {
+        proveedorRepository.deleteById(id);
+
+        return "redirect:/proveedores";
+    }
 }
