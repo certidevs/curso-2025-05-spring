@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario de proveedor</title>
+</head>
+<body>
+<div>
+    <h1 th:if="${proveedor.id != null}">
+        Modificar proveedor <span th:text="${proveedor.id}"></span>
+    </h1>
+    <h1 th:if="${proveedor.id == null}">Crear nuevo producto</h1>
+
+    <div th:if="${error}">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form th:action="@{/proveedores}" th:object="${proveedor}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <div>
+            <label for="nombre">Nombre del proveedor:</label>
+            <input type="text"
+                   id="nombre"
+                   th:field="*{nombre}"
+                   placeholder="Escriba el nombre del proveedor"
+                   required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email"
+                   id="email"
+                   th:field="*{email}"
+                   placeholder="correo@mail.com">
+        </div>
+        <div>
+            <label for="telefono">Teléfono</label>
+            <input type="tel"
+                   id="telefono"
+                   th:field="*{telefono}"
+                   placeholder="123456789">
+        </div>
+        <div>
+            <input type="checkbox"
+                   id="activo"
+                   th:field="*{activo}">
+            <label for="activo">Proveedor activo</label>
+        </div>
+        <div>
+            <label>Productos asociados:</label>
+            <div th:each="producto : ${productos}">
+                <input type="checkbox"
+                       th:id="'producto_' + ${producto.id}"
+                       th:field="*{productos}"
+                       th:value="${producto.id}">
+                <label th:for="'producto_' + ${producto.id}"
+                       th:text="${producto.nombre}"></label>
+            </div>
+        </div>
+
+        <div>
+            <a th:href="@{/proveedores}">Cancelar</a>
+            <button type="submit">
+                <span th:if="${proveedor.id != null}">Actualizar</span>
+                <span th:if="${proveedor.id == null}">Guardar</span>
+            </button>
+        </div>
+</form>
+</div>
+</body>
+</html>
