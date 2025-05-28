@@ -41,6 +41,14 @@
     <h1>Listado de productos</h1>
     <a th:href="@{/productos/nuevo}">Crear nuevo producto</a>
 
+    <div>
+        <h3>Filtar por categoría:</h3>
+        <span th:each="categoria : ${categorias}">
+            <a th:href="@{/productos/categoria/{categoriaId}(categoriaId=${categoria.id})}"
+                th:text="${categoria.nombre}"></a>
+        </span>
+    </div>
+
     <div th:if="${productos.isEmpty()}">
         <p>No hay productos disponibles en este momento.</p>
     </div>

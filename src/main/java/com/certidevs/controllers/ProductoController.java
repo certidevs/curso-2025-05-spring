@@ -31,6 +31,7 @@ public class ProductoController {
         // crear una lista con todos los productos
         List<Producto> productos = productoRepository.findAll();
         model.addAttribute("productos", productos);
+        model.addAttribute("categorias", categoriaRepository.findAll());
 
         return "producto/producto-list";
     }
@@ -86,5 +87,16 @@ public class ProductoController {
         productoRepository.deleteById(id);
 
         return "redirect:/productos";
+    }
+
+    // FILTROS
+    // filtrar productos por categoria
+    @GetMapping("/productos/categoria/{categoriaId}")
+    public String findByCategoria(Model model, @PathVariable Long categoriaId) {
+        List<Producto> productos = productoRepository.findByCategoria_Id(categoriaId);
+        model.addAttribute("productos", productos);
+        model.addAttribute("categorias", categoriaRepository.findAll());
+
+        return "producto/producto-list";
     }
 }
