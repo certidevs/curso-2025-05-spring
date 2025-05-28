@@ -50,4 +50,19 @@ public class ProveedorController {
 
         return "proveedor/proveedor-form";
     }
+
+    // mostrar formulario para editar proveedor existente
+    @GetMapping("/proveedores/{id}/editar")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Proveedor> proveedorOpt = proveedorRepository.findById(id);
+
+        if (proveedorOpt.isPresent()) {
+            model.addAttribute("proveedor", proveedorOpt.get());
+            model.addAttribute("productos", productoRepository.findAll());
+        } else {
+            model.addAttribute("error", "No se ha encontrado proveedor");
+        }
+
+        return "proveedor/proveedor-form";
+    }
 }
