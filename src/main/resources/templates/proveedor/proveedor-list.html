@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de proveedores</title>
+</head>
+<body>
+<div>
+    <h1>Lista de proveedores</h1>
+    <a th:href="@{/proveedores/nuevo}"></a>
+
+    <div th:if="${proveedores.isEmpty()}">
+        <p>No hay proveedores en este momento.</p>
+    </div>
+
+    <table th:unless="${proveedores.isEmpty()}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Activo</th>
+            <th>Productos</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="proveedor : ${proveedores}">
+            <td th:text="${proveedor.id}"></td>
+            <td th:text="${proveedor.nombre}"></td>
+            <td th:text="${proveedor.email ?: 'Sin email'}"></td>
+            <td th:text="${proveedor.telefono ?: 'Sin teléfono'}"></td>
+            <td th:text="${proveedor.activo ? 'Sí' : 'No'}"></td>
+            <td>
+                <span th:if="${proveedor.productos.isEmpty()}">Sin productos</span>
+                <span th:unless="${proveedor.productos.isEmpty()}"
+                        th:text="${proveedor.productos.size()} + ' productos'"></span>
+            </td>
+            <td>
+                <a th:href="@{/proveedores/{id}(id=${proveedor.id})}">Ver detalle</a>
+                <a th:href="@{/proveedores/{id}/editar(id=${proveedor.id})}">Editar</a>
+                <form>
+                    <button>Borrar</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
