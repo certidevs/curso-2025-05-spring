@@ -8,7 +8,7 @@
 <body>
 <div>
     <h1>Lista de proveedores</h1>
-    <a th:href="@{/proveedores/nuevo}"></a>
+    <a th:href="@{/proveedores/nuevo}">Crear nuevo producto</a>
 
     <div th:if="${proveedores.isEmpty()}">
         <p>No hay proveedores en este momento.</p>
@@ -41,13 +41,18 @@
             <td>
                 <a th:href="@{/proveedores/{id}(id=${proveedor.id})}">Ver detalle</a>
                 <a th:href="@{/proveedores/{id}/editar(id=${proveedor.id})}">Editar</a>
-                <form>
-                    <button>Borrar</button>
+                <form th:action="@{/proveedores/{id}/eliminar(id=${proveedor.id})}" method="post">
+                    <button type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar este proveedor?')">Borrar</button>
                 </form>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <div>
+        <a th:href="@{/productos}">Ver productos</a>
+        <a th:href="@{/categorias}">Ver categorias</a>
+    </div>
 </div>
 </body>
 </html>
