@@ -16,7 +16,7 @@ import java.util.Optional;
 @Controller
 public class CategoriaController {
 
-    private CategoriaRepository categoriaRepository;
+    private final CategoriaRepository categoriaRepository;
     private final ProductoRepository productoRepository;
 
     public CategoriaController(CategoriaRepository categoriaRepository,
@@ -30,7 +30,7 @@ public class CategoriaController {
         List<Categoria> categorias = categoriaRepository.findAll();
         model.addAttribute("categorias", categorias);
 
-        return "categoria-list";
+        return "categoria/categoria-list";
     }
 
     @GetMapping("/categorias/{id}") // http://localhost:8080/categorias/1
@@ -43,17 +43,17 @@ public class CategoriaController {
             model.addAttribute("error", "404 Categoría Not Found");
         }
 
-        return "categoria-detail";
+        return "categoria/categoria-detail";
     }
 
     @GetMapping("/categorias/nueva")
     public String createForm(Model model) {
         model.addAttribute("categoria", new Categoria());
 
-        return "categoria-form";
+        return "categoria/categoria-form";
     }
 
-    @GetMapping("categorias/{id}/editar")
+    @GetMapping("/categorias/{id}/editar")
     public String editForm(Model model, @PathVariable Long id) {
         Optional<Categoria> categoriaOpt = categoriaRepository.findById(id);
 
@@ -63,7 +63,7 @@ public class CategoriaController {
             model.addAttribute("error", "404 Categoría Not Found");
         }
 
-        return "categoria-form";
+        return "categoria/categoria-form";
     }
 
     @PostMapping("/categorias")
@@ -73,7 +73,7 @@ public class CategoriaController {
         return "redirect:/categorias";
     }
 
-    @PostMapping("categorias/{id}/eliminar")
+    @PostMapping("/categorias/{id}/eliminar")
     public String delete(@PathVariable Long id) {
         if (productoRepository.countByCategoria_Id(id) > 0) {
             return "redirect:/categorias?error=true";
@@ -82,5 +82,4 @@ public class CategoriaController {
 
         return "redirect:/categorias";
     }
-
 }

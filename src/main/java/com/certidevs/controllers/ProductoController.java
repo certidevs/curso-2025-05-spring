@@ -32,7 +32,7 @@ public class ProductoController {
         List<Producto> productos = productoRepository.findAll();
         model.addAttribute("productos", productos);
 
-        return "producto-list";
+        return "producto/producto-list";
     }
 
     @GetMapping("/productos/{id}") // http://localhost:8080/productos/1
@@ -45,7 +45,7 @@ public class ProductoController {
             model.addAttribute("error", "404 Producto Not Found");
         }
 
-        return "producto-detail";
+        return "producto/producto-detail";
     }
 
     // mostrar formulario para crear nuevo producto
@@ -54,7 +54,7 @@ public class ProductoController {
         model.addAttribute("producto", new Producto());
         model.addAttribute("categorias", categoriaRepository.findAll());
 
-        return "producto-form";
+        return "producto/producto-form";
     }
 
     // mostrar formulario para editar producto existente
@@ -69,7 +69,7 @@ public class ProductoController {
             model.addAttribute("error", "Producto no encontrado");
         }
 
-        return "producto-form";
+        return "producto/producto-form";
     }
 
     // procesar formulario (crear o actualizar)
