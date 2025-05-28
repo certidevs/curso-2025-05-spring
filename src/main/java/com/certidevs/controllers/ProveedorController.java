@@ -1,6 +1,7 @@
 package com.certidevs.controllers;
 
 import com.certidevs.entities.Proveedor;
+import com.certidevs.repositories.ProductoRepository;
 import com.certidevs.repositories.ProveedorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class ProveedorController {
 
     private final ProveedorRepository proveedorRepository;
+    private final ProductoRepository productoRepository;
 
     // listar todos los proveedores
     @GetMapping("/proveedores")
@@ -37,7 +39,15 @@ public class ProveedorController {
             model.addAttribute("error", "No se ha encontrado proveedor");
         }
 
-        return "proveedor-detail";
+        return "proveedor/proveedor-detail"; // TODO: crear proveedor-detail.html
     }
 
+    // mostrar formulario para crear nuevo proveedor
+    @GetMapping("/proveedores/nuevo")
+    public String createForm(Model model) {
+        model.addAttribute("proveedor", new Proveedor());
+        model.addAttribute("productos", productoRepository.findAll());
+
+        return "proveedor/proveedor-form";
+    }
 }
