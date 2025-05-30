@@ -103,3 +103,46 @@ Pasos para hacer un fork:
 2. Actualizar el repositorio dándole `Sync fork` y a `Update branch`
 ![img_5.png](img_5.png)
 3. Actualizar proyecto con un Pull dándole a `Update Project` en Intellij IDEA
+
+## Instalar MySQL
+
+1. Acceder a la página https://dev.mysql.com/downloads/installer/
+2. Seleccionamos la versión 8.0.42
+3. Le damos al botón "Download" de cualquier instalador
+   ![img_6.png](img_6.png)
+4. Clicar en el enlace "No thanks, just start my download."
+   ![img_7.png](img_7.png)
+5. Ejecutar el archivo .msi
+6. Aceptar permitir cambios
+7. Seleccionar instalación "Full"
+   ![img_8.png](img_8.png)
+8. Seleccionar el directorio de instalación. Dejar por defecto.
+    ![img_9.png](img_9.png)
+9. Darle a "Execute"
+   ![img_10.png](img_10.png)
+10. Si da error en alguno, darle a "Back", a "Next" y volver a "Execute"
+    ![img_11.png](img_11.png)
+11. Cuando estén todos con el tick verde o con "Ready to install", darle a "Next" o "Execute"
+12. Se empezará a instalar. Puede tardar un rato
+    ![img_12.png](img_12.png)
+13. Se le da a "Next"
+    ![img_13.png](img_13.png)
+14. Se le da a "Next"
+    ![img_14.png](img_14.png)
+15. Escribimos una constraseña. Por ejemplo, `admin`. Y le damos a "Check"
+16. Desmarcar "Start the MySQL Server at System Startup" y darle a "Next"
+    ![img_15.png](img_15.png)
+17. Darle a "Next"
+18. Darle a "Execute"
+    ![img_16.png](img_16.png)
+19. Se le da a "Finish"
+    ![img_17.png](img_17.png)
+20. No marcar nada y darle a "Finish"
+    ![img_18.png](img_18.png)
+21. Escribir en "Password" la contraseña que se haya elegido, por ejemplo, `admin`. Se da a "Check" y a "Next"
+    ![img_19.png](img_19.png)
+22. Se le da a "Execute" y "Finish"
+    ![img_20.png](img_20.png)
+23. Se le da a "Next"
+24. Desmarcar las 2 opciones y "Finish"
+    ![img_21.png](img_21.png)
