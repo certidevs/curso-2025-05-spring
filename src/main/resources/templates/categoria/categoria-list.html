@@ -10,6 +10,23 @@
     <h1>Lista de categorías</h1>
     <a th:href="@{/categorias/nueva}">Crear nueva categoría</a>
 
+    <!--BUSCAR POR NOMBRE-->
+    <div>
+        <h3>Buscar categoría por nombre:</h3>
+        <form th:action="@{/categorias/buscar}" method="get">
+            <input type="text"
+                   name="nombre"
+                   th:value="${busquedaActual}"
+                   placeholder="Escriba el nombre de la categoría">
+            <button type="submit">Buscar</button>
+            <a th:href="@{/categorias}">Limpiar</a>
+        </form>
+
+        <div th:if="${busquedaActual}">
+            <p>Resultados de búsqueda para: "<strong th:text="${busquedaActual}"></strong>"</p>
+        </div>
+    </div>
+
     <div th:if="${param.error}" style="color: white; background: red;">
         <strong>ERROR:</strong> No se puede eliminar esta categoría porque tiene productos asociados.
     </div>

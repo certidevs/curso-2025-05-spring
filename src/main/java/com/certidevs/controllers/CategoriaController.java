@@ -5,10 +5,7 @@ import com.certidevs.repositories.CategoriaRepository;
 import com.certidevs.repositories.ProductoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -81,5 +78,16 @@ public class CategoriaController {
         categoriaRepository.deleteById(id);
 
         return "redirect:/categorias";
+    }
+
+    // FILTROS
+    // filtrar categorías por nombre
+    @GetMapping("/categorias/buscar") // http:localhost:8080/categorias/buscar?nombre=frutas
+    public String findByName(Model model, @RequestParam("nombre") String nombre) {
+        List<Categoria> categorias = categoriaRepository.findByNombreContainsIgnoreCase(nombre);
+        model.addAttribute("categorias", categorias);
+        model.addAttribute("busquedaActual", nombre);
+
+        return "categoria/categoria-list";
     }
 }
