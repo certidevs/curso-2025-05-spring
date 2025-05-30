@@ -5,10 +5,7 @@ import com.certidevs.repositories.CategoriaRepository;
 import com.certidevs.repositories.ProductoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -91,11 +88,22 @@ public class ProductoController {
 
     // FILTROS
     // filtrar productos por categoria
-    @GetMapping("/productos/categoria/{categoriaId}")
+    @GetMapping("/productos/categoria/{categoriaId}") // http://localhost:8080/productos/categoria/1
     public String findByCategoria(Model model, @PathVariable Long categoriaId) {
         List<Producto> productos = productoRepository.findByCategoria_Id(categoriaId);
         model.addAttribute("productos", productos);
         model.addAttribute("categorias", categoriaRepository.findAll());
+
+        return "producto/producto-list";
+    }
+
+    // filtrar productos por nombre
+    @GetMapping("/productos/buscar") // http://localhost:8080/productos/buscar?nombre=manzana
+    public String findByNombre(Model model, @RequestParam("nombre") String nombre) {
+        List<Producto> productos = productoRepository.findByNombreContainsIgnoreCase(nombre);
+        model.addAttribute("productos", productos);
+        model.addAttribute("categorias", categoriaRepository.findAll());
+        model.addAttribute("busquedaActual", nombre);
 
         return "producto/producto-list";
     }

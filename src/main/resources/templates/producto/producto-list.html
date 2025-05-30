@@ -41,6 +41,25 @@
     <h1>Listado de productos</h1>
     <a th:href="@{/productos/nuevo}">Crear nuevo producto</a>
 
+    <!-- BUSCAR POR NOMBRE -->
+    <div>
+        <h3>Buscar por nombre:</h3>
+        <form th:action="@{/productos/buscar}" method="get">
+            <input type="text"
+                   name="nombre"
+                   th:value="${busquedaActual}"
+                   placeholder="Escriba el nombre del producto"
+                   minlength="3">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- mostrar qué se ha buscado -->
+        <div th:if="${busquedaActual}">
+            <p>Resultados de búsqueda para: "<strong th:text="${busquedaActual}"></strong>"</p>
+        </div>
+    </div>
+
+    <!-- FILTRAR POR CATEGORÍA -->
     <div>
         <h3>Filtar por categoría:</h3>
         <span th:each="categoria : ${categorias}">

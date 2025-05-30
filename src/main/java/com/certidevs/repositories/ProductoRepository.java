@@ -42,6 +42,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
     long countByCategoria_Id(Long id);
 
+    List<Producto> findByNombreContainsIgnoreCase(String nombre);
 
     // si la propiedad no existe entonces dará un fallo en el arranque
     // List<Producto> findByUsuario_Id(Long id);
