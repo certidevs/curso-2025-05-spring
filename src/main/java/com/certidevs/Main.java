@@ -26,7 +26,7 @@ public class Main {
         CategoriaRepository categoriaRepository = spring.getBean(CategoriaRepository.class);
         ProveedorRepository proveedorRepository = spring.getBean(ProveedorRepository.class);
 
-        // crear categorías
+        /*// crear categorías
         Categoria frutas = new Categoria("Frutas", "Productos frescos");
         Categoria lacteos = new Categoria("Lácteos", "Productos derivados de la leche");
         Categoria cereales = new Categoria("Cereales", "Alimentos a base de granos y cereales");
@@ -89,7 +89,7 @@ public class Main {
 
         // guardar proveedores
         proveedorRepository.saveAll(List.of(proveedor1, proveedor2, proveedor3, proveedor4));
-
+*/
         System.out.println("Productos guardados: " + productoRepository.findAll());
 
         System.out.println("Número total de productos: " + productoRepository.count());
