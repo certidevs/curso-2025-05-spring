@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Página Index</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
+<div class="container">
     <h1>Página index</h1>
-<nav>
-    <a th:href="@{/productos}">Ver productos</a>
-    <a th:href="@{/categorias}">Ver categorías</a>
-    <a th:href="@{/proveedores}">Ver proveedores</a>
-    <br>
-    <a th:href="@{/productos/1}">Ver un producto</a>
-</nav>
-
+    <nav>
+        <a class="btn btn-primary" th:href="@{/productos}">Ver productos</a>
+        <a class="btn btn-warning" th:href="@{/categorias}">Ver categorías</a>
+        <a class="btn btn-success" th:href="@{/proveedores}">Ver proveedores</a>
+        <br>
+        <a th:href="@{/productos/1}">Ver un producto</a>
+    </nav>
+</div>
 </body>
 </html>
