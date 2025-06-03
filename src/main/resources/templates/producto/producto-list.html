@@ -4,40 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lista de productos</title>
-    <style>
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 2px solid #367800;
-        }
-        th {
-            background-color: #ff79ac;
-            color: #050329;
-        }
-        tr:hover {
-            background-color: #f88416;
-        }
-        .disponible {
-            color: green;
-            font-weight: bold;
-        }
-        .no-disponible {
-            color: red;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-    </style>
+    
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
-<div class="container">
+<div>
     <h1>Listado de productos</h1>
     <a th:href="@{/productos/nuevo}">Crear nuevo producto</a>
 
@@ -91,8 +62,7 @@
                 <td th:text="${producto.nombre}"></td>
                 <td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)} + ' €'"></td>
                 <td th:text="${producto.stock} + (${producto.stock == 1} ? ' Ud.' : ' Uds.')"></td>
-                <td th:text="${producto.disponible ? 'Sí' : 'No'}"
-                th:class="${producto.disponible ? 'disponible' : 'no-disponible'}"></td>
+                <td th:text="${producto.disponible ? 'Sí' : 'No'}"></td>
                 <td th:text="${producto.categoria != null ? producto.categoria.nombre : 'Sin categoría'}"></td>
                 <td>
                     <a th:href="@{/productos/{id}(id=${producto.id})}">Ver detalle</a>
@@ -110,5 +80,7 @@
         <a th:href="@{/proveedores}">Ver proveedores</a>
     </div>
 </div>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
