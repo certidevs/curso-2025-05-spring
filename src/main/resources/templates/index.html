@@ -9,13 +9,55 @@
 <body>
 <div class="container mt-4 mb-5">
     <h1 class="text-center mb-4">Página index</h1>
-    <nav>
+    <nav class="mb-4">
         <a class="btn btn-primary me-2" th:href="@{/productos}">Ver productos</a>
         <a class="btn btn-warning me-2" th:href="@{/categorias}">Ver categorías</a>
         <a class="btn btn-success me-2" th:href="@{/proveedores}">Ver proveedores</a>
         <br>
         <a class="link-primary" th:href="@{/productos/1}">Ver un producto</a>
     </nav>
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Esto es una alerta.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Productos</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Gestiona tu inventario de productos</p>
+                    <span class="badge bg-primary">16 productos</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Categorías</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Organiza por categorías</p>
+                    <span class="badge bg-warning text-dark">17 categorías</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Proveedores</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Administra proveedores</p>
+                    <span class="badge bg-success">4 proveedores</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
