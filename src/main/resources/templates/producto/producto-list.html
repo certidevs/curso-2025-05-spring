@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lista de productos</title>
-    
+
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
-<div>
-    <h1>Listado de productos</h1>
-    <a th:href="@{/productos/nuevo}">Crear nuevo producto</a>
+<div class="container mt-4">
+    <h1 class="mb-4">Listado de productos</h1>
+    <a th:href="@{/productos/nuevo}" class="btn btn-success mb-3">Crear nuevo producto</a>
 
     <!-- BUSCAR POR NOMBRE -->
-    <div>
-        <h3>Buscar por nombre:</h3>
-        <form th:action="@{/productos/buscar}" method="get">
-            <input type="text"
-                   name="nombre"
-                   th:value="${busquedaActual}"
-                   placeholder="Escriba el nombre del producto"
-                   minlength="3">
-            <button type="submit">Buscar</button>
-            <a th:href="@{/categorias}">Limpiar</a>
-        </form>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="card-title">Buscar por nombre:</h3>
+            <form th:action="@{/productos/buscar}" method="get" class="d-flex gap-2 mb-3">
+                <input type="text"
+                       name="nombre"
+                       th:value="${busquedaActual}"
+                       placeholder="Escriba el nombre del producto"
+                       minlength="3"
+                       class="form-control">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                <a th:href="@{/categorias}" class="btn btn-secondary">Limpiar</a>
+            </form>
 
-        <!-- mostrar qué se ha buscado -->
-        <div th:if="${busquedaActual}">
-            <p>Resultados de búsqueda para: "<strong th:text="${busquedaActual}"></strong>"</p>
+            <!-- mostrar qué se ha buscado -->
+            <div th:if="${busquedaActual}">
+                <p>Resultados de búsqueda para: "<strong th:text="${busquedaActual}"></strong>"</p>
+            </div>
         </div>
     </div>
 
