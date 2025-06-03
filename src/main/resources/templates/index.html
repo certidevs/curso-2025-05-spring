@@ -7,14 +7,14 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
-<div class="container">
-    <h1>Página index</h1>
+<div class="container mt-4 mb-5">
+    <h1 class="text-center mb-4">Página index</h1>
     <nav>
-        <a class="btn btn-primary" th:href="@{/productos}">Ver productos</a>
-        <a class="btn btn-warning" th:href="@{/categorias}">Ver categorías</a>
-        <a class="btn btn-success" th:href="@{/proveedores}">Ver proveedores</a>
+        <a class="btn btn-primary me-2" th:href="@{/productos}">Ver productos</a>
+        <a class="btn btn-warning me-2" th:href="@{/categorias}">Ver categorías</a>
+        <a class="btn btn-success me-2" th:href="@{/proveedores}">Ver proveedores</a>
         <br>
-        <a th:href="@{/productos/1}">Ver un producto</a>
+        <a class="link-primary" th:href="@{/productos/1}">Ver un producto</a>
     </nav>
 </div>
 </body>
