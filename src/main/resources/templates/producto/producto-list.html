@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
-<div class="container mt-4">
+<div class="container mt-4 mb-5">
     <h1 class="mb-4">Listado de productos</h1>
     <a th:href="@{/productos/nuevo}" class="btn btn-success mb-3">Crear nuevo producto</a>
 
@@ -24,27 +24,33 @@
                        minlength="3"
                        class="form-control">
                 <button type="submit" class="btn btn-primary">Buscar</button>
-                <a th:href="@{/categorias}" class="btn btn-secondary">Limpiar</a>
+                <a th:href="@{/productos}" class="btn btn-secondary">Limpiar</a>
             </form>
 
             <!-- mostrar qué se ha buscado -->
-            <div th:if="${busquedaActual}">
-                <p>Resultados de búsqueda para: "<strong th:text="${busquedaActual}"></strong>"</p>
+            <div th:if="${busquedaActual}" class="alert alert-info">
+                <p class="mb-0">Resultados de búsqueda para: "<strong th:text="${busquedaActual}"></strong>"</p>
             </div>
         </div>
     </div>
 
     <!-- FILTRAR POR CATEGORÍA -->
-    <div>
-        <h3>Filtar por categoría:</h3>
-        <span th:each="categoria : ${categorias}">
-            <a th:href="@{/productos/categoria/{categoriaId}(categoriaId=${categoria.id})}"
-                th:text="${categoria.nombre}"></a>
-        </span>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="card-title">Filtrar por categoría:</h3>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+                <span th:each="categoria : ${categorias}">
+                    <a th:href="@{/productos/categoria/{categoriaId}(categoriaId=${categoria.id})}"
+                        th:text="${categoria.nombre}"
+                        class="btn btn-outline-primary btn-sm"></a>
+                </span>
+            </div>
+            <a th:href="@{/productos}" class="btn btn-secondary">Limpiar filtros</a>
+        </div>
     </div>
 
-    <div th:if="${productos.isEmpty()}">
-        <p>No hay productos disponibles en este momento.</p>
+    <div th:if="${productos.isEmpty()}" class="alert alert-warning">
+        <p class="mb-0">No hay productos disponibles en este momento.</p>
     </div>
 
     <table th:unless="${productos.isEmpty()}">
