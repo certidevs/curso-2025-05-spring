@@ -1,12 +1,15 @@
 package com.certidevs.controllers;
 
 import com.certidevs.entities.Producto;
+import com.certidevs.entities.Proveedor;
 import com.certidevs.repositories.CategoriaRepository;
 import com.certidevs.repositories.ProductoRepository;
+import com.certidevs.repositories.ProveedorRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,10 +19,12 @@ public class ProductoController {
 
     private ProductoRepository productoRepository;
     private CategoriaRepository categoriaRepository;
+    private ProveedorRepository proveedorRepository;
 
-    public ProductoController(ProductoRepository productoRepository, CategoriaRepository categoriaRepository) {
+    public ProductoController(ProductoRepository productoRepository, CategoriaRepository categoriaRepository, ProveedorRepository proveedorRepository) {
         this.productoRepository = productoRepository;
         this.categoriaRepository = categoriaRepository;
+        this.proveedorRepository = proveedorRepository;
     }
 
     // anotación que mapea las peticiones GET a la URL "/productos"
@@ -81,7 +86,32 @@ public class ProductoController {
     // eliminar producto
     @PostMapping("/productos/{id}/eliminar")
     public String delete(@PathVariable Long id) {
-        productoRepository.deleteById(id);
+        // buscar el producto
+        Optional<Producto> productoOpt = productoRepository.findById(id);
+
+        if (productoOpt.isPresent()) {
+            // buscar proveedores que tienen este producto
+            List<Proveedor> proveedores = proveedorRepository.findByProductos_Id(id);
+
+            // desvincular el producto de cada proveedor
+            for (Proveedor proveedor : proveedores) {
+                // crear una lista de productos a mantener
+                List<Producto> productosMantener = new ArrayList<>();
+
+                for (Producto producto : proveedor.getProductos()) {
+                    if (!producto.getId().equals(id)) { // si NO es el producto a eliminar
+                        productosMantener.add(producto);
+                    }
+                }
+
+                // reemplazar la lista
+                proveedor.setProductos(productosMantener);
+                proveedorRepository.save(proveedor);
+            }
+
+            // borrar el producto
+            productoRepository.deleteById(id);
+        }
 
         return "redirect:/productos";
     }

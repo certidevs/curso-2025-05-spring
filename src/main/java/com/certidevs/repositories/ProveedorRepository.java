@@ -11,4 +11,7 @@ public interface ProveedorRepository extends JpaRepository<Proveedor, Long> {
 
     // encontrar proveedores que no sean activos
     List<Proveedor> findByActivoFalse();
+
+    // encontrar proveedores que tienen un mismo producto
+    List<Proveedor> findByProductos_Id(Long id);
 }
