@@ -84,7 +84,7 @@ public class ProductoController {
     }
 
     // eliminar producto
-    @PostMapping("/productos/{id}/eliminar")
+    /*@PostMapping("/productos/{id}/eliminar")
     public String delete(@PathVariable Long id) {
         // buscar el producto
         Optional<Producto> productoOpt = productoRepository.findById(id);
@@ -110,6 +110,28 @@ public class ProductoController {
             }
 
             // borrar el producto
+            productoRepository.deleteById(id);
+        }
+
+        return "redirect:/productos";
+    }*/
+
+    // eliminar producto (con funciones lambda)
+    @PostMapping("/productos/{id}/eliminar")
+    public String delete(@PathVariable Long id) {
+        Optional<Producto> productoOpt = productoRepository.findById(id);
+
+        if (productoOpt.isPresent()) {
+            // buscar proveedores que tienen este producto
+            List<Proveedor> proveedores = proveedorRepository.findByProductos_Id(id);
+
+            // desvincular producto de todos los proveedores
+            proveedores.forEach(proveedor -> {
+                proveedor.getProductos().removeIf(producto -> producto.getId().equals(id));
+                proveedorRepository.save(proveedor);
+            });
+
+            // eliminar el producto
             productoRepository.deleteById(id);
         }
 
