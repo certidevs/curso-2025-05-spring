@@ -32,5 +32,13 @@ public class ProductoService {
         productoRepository.deleteById(id);
     }
 
+    public List<Producto> findByCategoria_Id(Long id) {
+        return productoRepository.findByCategoria_Id(id);
+    }
+
+    public List<Producto> findByNombreContainsIgnoreCase(String nombre) {
+        return productoRepository.findByNombreContainsIgnoreCase(nombre);
+    }
+
     // lógica de negocio
 }
