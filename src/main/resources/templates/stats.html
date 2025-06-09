@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estadísticas</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container mt-4 mb-5">
+    <h1 class="mb-4">Estadísticas de productos</h1>
+
+    <div class="card col-md-6 mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Filtrar por categoría</h5>
+
+            <form action="/estadisticas" method="get" class="d-flex gap-2">
+                <select name="categoriaId" class="form-select">
+                    <option value="">Todas las categorías</option>
+                    <option th:each="cat : ${categorias}"
+                            th:value="${cat.id}"
+                            th:text="${cat.nombre}"
+                            th:selected="${categoriaId == cat.id}"></option>
+                </select>
+                <button type="submit" class="btn btn-primary">Mostrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div th:if="${stats.count() > 0}">
+        <h2>Resultados:</h2>
+        <div class="row">
+            <div class="col-md-3 mb-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Precio mínimo</h5>
+                        <p class="card-text display-6" th:text="${stats.minPrice() + ' €'}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Precio máximo</h5>
+                        <p class="card-text display-6" th:text="${stats.maxPrice() + ' €'}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Media de precios</h5>
+                        <p class="card-text display-6" th:text="${stats.meanPrice() + ' €'}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Total unidades</h5>
+                        <p class="card-text display-6" th:text="${stats.count()}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
