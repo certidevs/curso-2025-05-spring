@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class ProductoService {
 
-    private ProductoRepository productoRepository;
+    private final ProductoRepository productoRepository;
 
     // métodos CRUD (delegación)
 
@@ -90,7 +90,7 @@ public class ProductoService {
         }
 
         // devolver DTO con las estadíscas calculadas
-        return  new ProductoStats(minPrice, maxPrice, meanPrice, countProducts);
+        return new ProductoStats(minPrice, maxPrice, meanPrice, countProducts);
     }
 
     // calcular estadísticas para todos los productos
@@ -133,6 +133,6 @@ public class ProductoService {
         }
 
         // devolver DTO con las estadíscas calculadas
-        return  new ProductoStats(minPrice, maxPrice, meanPrice, countProducts);
+        return new ProductoStats(minPrice, maxPrice, meanPrice, countProducts);
     }
 }
