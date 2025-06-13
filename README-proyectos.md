@@ -10,7 +10,6 @@ Tecnologías:
   * Entidades JPA `@Entity`: Tarea, Proyecto, Categoria, Usuario, Comentario
   * Paco Gutiérrez
   * Ángel García
-  * Ayelén Bosch
   * Javi Noguer
   * Jorge Hurtado
   * Asociaciones:
@@ -18,6 +17,11 @@ Tecnologías:
     * User ManyToMany Project
     * Comment ManyToOne Task
     * Task ManyToOne Category
+  * HTMLs:
+    * task-list.html
+    * task-detail.html: mostrar task y comments filtrados por task id
+    * task-form.html
+    * comment-form.html
 
 * Grupo 2: Ecommerce https://github.com/isrcercas/FA-Proyecto-Final-Ecommerce-Grupo2
   * Entidades JPA `@Entity`: Producto, Categoria, Usuario, Compra, DetalleCompra
@@ -43,7 +47,7 @@ Tecnologías:
     * Proyeccion: ManyToOne Pelicula
     * Reserva ManyToOne Usuario 
     * Reserva ManyToOne Proyeccion
-    * Ticket ManyToOne Reserva (opcional, no haría falta, la reserva ya serviría)
+      * Ticket ManyToOne Reserva (opcional, no haría falta, la reserva ya serviría)
 
 * Grupo 4: Restaurantes https://github.com/Twinkym/Restaurante
   * Entidades JPA `@Entity`: Restaurante, Plato, Usuario, Reserva, Pedido
@@ -133,6 +137,7 @@ Requisitos:
 * HTMLs: Página de error personalizada, página de inicio personalizada.
 * Bootstrap CSS y font awesome para iconos
 * Base de datos H2
+* Rama main
 
 
 ### DESARROLLO: PUNTOS OPCIONALES:
@@ -150,6 +155,7 @@ Si aún así les sobra tiempo y quieren experimentar a agregar más cosas al pro
 * Manejo global de excepciones con @ControllerAdvice
 * Poder escribir una opinión mediante ManyToOne en un producto, película, tarea, o libro, como usuario anónimo.
 * Spring Security
+* Múltiples ramas
 
 GitHub con ejemplos: https://github.com/certidevs/spring
 
