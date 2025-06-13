@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supermarket Detail</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: nav1}"></div>
+
+<div class="container text-center">
+    <div class="row">
+
+        <h1>Detalle de comida</h1>
+        <div class="col-3">
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert">
+                    <p th:text="${error}"></p>
+                </div>
+                <a class="btn btn-primary" th:href="@{/supermarkets}">Volver</a>
+            </div>
+
+
+            <div class="card" th:if="${error} == null" >
+                <img src="https://dummyimage.com/300" class="card-img-top" alt="Supermarket Image">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${supermarket.name}"></h5>
+                    <p class="card-text" th:text="|${supermarket.initYear} ${supermarket.category}|"></p>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-primary" th:href="@{/supermarkets}">Volver</a>
+                    <a class="btn btn-success" th:href="@{/supermarkets/{id}/edit(id=${supermarket.id})}">Editar</a>
+                    <a class="btn btn-danger" th:href="@{/supermarkets/{id}/delete(id=${supermarket.id})}">Borrar</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-9">
+
+            <div class="card mb-3" style="width: 18rem;">
+                <div class="card-header">
+                    Foods
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:each="food: ${foods}" >
+                        <a class="btn btn-link" th:href="@{/foods/{id}(id=${food.id})}" th:text="${food.name}"></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card mb-3" style="width: 18rem;">
+                <div class="card-header">
+                    Addresses
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"
+                        th:each="address: ${supermarket.addresses}"
+                        th:text="|${address.street} ${address.city} ${address.country}|" >
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Sections
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:each="section: ${supermarket.sections}" >
+                        <a class="btn btn-link"
+                           th:href="@{/supermarket-sections/{id}(id=${section.id})}"
+                           th:text="|${section.name} ${section.m2} (m2)|"></a>
+                    </li>
+                </ul>
+                <a class="btn btn-success" th:href="@{/supermarket-sections/create/{id}(id=${supermarket.id})}">Crear sección</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+<div th:replace="~{footer :: footer1}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

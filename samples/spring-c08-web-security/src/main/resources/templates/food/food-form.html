@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Form</title>
+
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: nav1}"></div>
+
+<div class="container text-center">
+  <div class="row">
+
+    <h1 th:if="${food.id}" class="h1-title">Modificar Food <span th:text="${food.id}"></span></h1>
+    <h1 th:if="${food.id} == null" class="h1-title">Crear nuevo Food</h1>
+
+    <div class="col"></div>
+
+    <div class="col">
+
+        <div th:if="${error}">
+            <div class="alert alert-danger" role="alert" >
+                <p th:text="${error}"></p>
+            </div>
+            <a type="button" class="btn btn-primary" th:href="@{/foods}">Volver</a>
+        </div>
+
+        <form th:if="${error} == null" th:action="@{/foods}" method="POST" th:object="${food}">
+
+            <input type="hidden" id="id" name="id" th:field="*{id}" />
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" >
+            </div>
+
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" th:field="*{category}">
+            </div>
+
+            <div class="mb-3">
+                <label for="color" class="form-label">Color</label>
+                <input type="text" class="form-control" id="color" th:field="*{color}">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price (€)</label>
+                <input type="number" step="0.01" class="form-control" id="price" th:field="*{price}">
+            </div>
+
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity (Unidades)</label>
+                <input type="number" class="form-control" id="quantity" th:field="*{quantity}">
+            </div>
+
+            <div class="mb-4">
+                <label for="expireDate" class="form-label">Expiration Date</label>
+                <input type="date" class="form-control" id="expireDate" th:field="*{expireDate}">
+            </div>
+
+            <div class="form-check mb-3 text-start">
+                <input class="form-check-input" type="checkbox" id="available" th:field="*{available}">
+                <label class="form-check-label" for="available">
+                    Available
+                </label>
+            </div>
+
+            <div class="mb-3">
+                <select aria-label="Supermarkets" class="form-select" th:field="*{supermarket}">
+                    <option th:if="${food.id} == null" selected value="0">Seleccionar supermercado</option>
+                    <option th:each="supermarket : ${supermarkets}" th:value="${supermarket.id}" th:text="${supermarket.name}"></option>
+                </select>
+            </div>
+
+            <h3>Food Nutritional Info</h3>
+            <div class="mb-3">
+                <label for="kcal" class="form-label">Kcal</label>
+                <input type="number" class="form-control" id="kcal" th:field="*{nutritionInfo.kcal}">
+            </div>
+            <div class="mb-3">
+                <label for="proteins" class="form-label">Proteins (%)</label>
+                <input type="number" step="0.01" class="form-control" id="proteins" th:field="*{nutritionInfo.proteins}">
+            </div>
+            <div class="mb-3">
+                <label for="carboHydrates" class="form-label">Carbohydrates (%)</label>
+                <input type="number" step="0.01" class="form-control" id="carboHydrates" th:field="*{nutritionInfo.carboHydrates}">
+            </div>
+            <div class="mb-3">
+                <label for="fats" class="form-label">Fats (%)</label>
+                <input type="number" step="0.01" class="form-control" id="fats" th:field="*{nutritionInfo.fats}">
+            </div>
+
+
+
+            <a class="btn btn-danger" th:href="@{/foods}">Cancelar</a>
+            <button type="submit" class="btn btn-success">Guardar</button>
+
+        </form>
+
+
+    </div>
+
+    <div class="col"></div>
+  </div>
+</div>
+
+<div th:replace="~{footer :: footer1}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Detail</title>
+
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: nav1}"></div>
+
+<div class="container text-center">
+  <div class="row">
+
+    <h1 class="h1-title">Detalle de comida</h1>
+    <div class="col"></div>
+
+    <div class="col">
+
+        <div th:if="${error}">
+            <div class="alert alert-danger" role="alert" >
+                <p th:text="${error}"></p>
+            </div>
+            <a class="btn btn-primary" th:href="@{/foods}">Volver</a>
+        </div>
+
+
+      <div class="card" th:if="${error} == null">
+        <img src="https://dummyimage.com/300" class="card-img-top" alt="Food Image">
+          <div class="card-body">
+              <h5 class="card-title" th:text="${food.name}"></h5>
+              <p class="card-text" th:text="${food.description}"></p>
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item" th:text="|Category: ${food.category}|"></li>
+
+              <li class="list-group-item" th:text="|Color: ${food.color}|"></li>
+
+              <li class="list-group-item" th:text="|Price: ${#numbers.formatDecimal(food.price,1,2)} €|"></li>
+
+              <li
+                  th:class="${food.quantity} ? 'text-success list-group-item' : 'text-danger list-group-item'"
+                  th:text="|Quantity: ${food.quantity} Unidades|"></li>
+
+              <li class="list-group-item">
+                  <span th:if="${food.available}" class="badge text-bg-success">Disponible</span>
+                  <span th:if="${food.available} == false" class="badge text-bg-danger">No disponible</span>
+              </li>
+
+              <li class="list-group-item" th:text="|Fecha Caducidad: ${#temporals.format(food.expireDate, 'dd/MM/yy')}|"></li>
+
+              <li class="list-group-item">
+                  <a class="btn btn-link btn-sm"
+                     th:text="${food.supermarket.name}"
+                     th:href="@{/supermarkets/{id}(id=${food.supermarket.id})}"></a>
+              </li>
+
+
+          </ul>
+        <div class="card-body">
+            <a class="btn btn-primary" th:href="@{/foods}">Volver</a>
+            <a class="btn btn-success" th:href="@{/foods/{id}/edit(id=${food.id})}">Editar</a>
+            <a class="btn btn-danger" th:href="@{/foods/{id}/delete(id=${food.id})}">Borrar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col"></div>
+  </div>
+</div>
+
+<div th:replace="~{footer :: footer1}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

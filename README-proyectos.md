@@ -13,6 +13,11 @@ Tecnologías:
   * Ayelén Bosch
   * Javi Noguer
   * Jorge Hurtado
+  * Asociaciones:
+    * Task ManyToOne Project
+    * User ManyToMany Project
+    * Comment ManyToOne Task
+    * Task ManyToOne Category
 
 * Grupo 2: Ecommerce https://github.com/isrcercas/FA-Proyecto-Final-Ecommerce-Grupo2
   * Entidades JPA `@Entity`: Producto, Categoria, Usuario, Compra, DetalleCompra
@@ -20,7 +25,12 @@ Tecnologías:
   * Antonio Mora
   * Vicente Antonio
   * Luis Miguel Roldán
-
+  * Asociacion
+    * Producto ManyToOne Categoria
+    * Compra ManyToOne Usuario
+    * DetalleCompra ManyToOne Compra
+    * DetalleCompra ManyToOne Producto
+  
 * Grupo 3: Cartelera de cine https://github.com/ojosdegato/cine
   * Entidades JPA `@Entity`: Pelicula, Genero, Usuario, Proyeccion, Reserva
   * Marcos González
@@ -29,15 +39,29 @@ Tecnologías:
   * Íñigo Lamadrid
   * Jose Alejandro Cobaria
   * Entidades:
-    * Pelicula
-    * Proyeccion: ManyToOne Pelicula, ManyToOne Sala, fecha, aforo
-    * Sala
+    * Pelicula ManyToOne Categoria-Genero
+    * Proyeccion: ManyToOne Pelicula
+    * Reserva ManyToOne Usuario 
+    * Reserva ManyToOne Proyeccion
+    * Ticket ManyToOne Reserva (opcional, no haría falta, la reserva ya serviría)
 
 * Grupo 4: Restaurantes https://github.com/Twinkym/Restaurante
   * Entidades JPA `@Entity`: Restaurante, Plato, Usuario, Reserva, Pedido
+  * Entidades JPA `@Entity`: Restaurante, Mesa, Menu, Plato, Reserva, Categoría
   * Alejandro Dietta
   * David de la Puente
   * Luis Miguel Haro
+  * Entidades
+    * Mesa: id, numero, capacidad, disponible
+    * Reserva: fechaHora LocalDateTime, numeroPersonas, nombreCliente, telefono
+    * Plato: nombre, descripcion, precio, imageUrl
+    * Categoria: nombre, description
+  * Asociaciones:
+    * Mesa ManyToOne Restaurante
+    * Menu ManyToOne Restaurante
+    * Plato ManyToOne Menu
+    * Plato ManyToOne Categoria
+    * Reserva ManyToOne Mesa
 
 * Grupo 5: Biblioteca (La casa del libro) https://github.com/manulibra11996/Biblioteca_java
   * Entidades JPA `@Entity`: Libro, Autor, Categoria, Usuario, Reserva o Compra
@@ -46,6 +70,11 @@ Tecnologías:
   * Manuel Fernández
   * Miguel Ángel de Andrés
   * Laura María Madrigal
+  * Asociaciones:
+    * Libro ManyToOne Author
+    * Libro ManyToOne Categoria
+    * Reserva ManyToOne Usuario
+    * Reserva ManyToOne Libro
 
 Otras ideas: 
 
@@ -120,6 +149,7 @@ Si aún así les sobra tiempo y quieren experimentar a agregar más cosas al pro
 * Testing de integración con mockMvc de los controladores MVC
 * Manejo global de excepciones con @ControllerAdvice
 * Poder escribir una opinión mediante ManyToOne en un producto, película, tarea, o libro, como usuario anónimo.
+* Spring Security
 
 GitHub con ejemplos: https://github.com/certidevs/spring
 
