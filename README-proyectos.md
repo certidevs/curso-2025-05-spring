@@ -22,6 +22,7 @@ Tecnologías:
     * task-detail.html: mostrar task y comments filtrados por task id
     * task-form.html
     * comment-form.html
+  * ENTIDADES FINALES: Comment, Project, Task, User
 
 * Grupo 2: Ecommerce https://github.com/isrcercas/FA-Proyecto-Final-Ecommerce-Grupo2
   * Entidades JPA `@Entity`: Producto, Categoria, Usuario, Compra, DetalleCompra
@@ -34,6 +35,7 @@ Tecnologías:
     * Compra ManyToOne Usuario
     * DetalleCompra ManyToOne Compra
     * DetalleCompra ManyToOne Producto
+  * ENTIDADES FINALES: Categoria, Producto, Usuario, Compra
   
 * Grupo 3: Cartelera de cine https://github.com/ojosdegato/cine
   * Entidades JPA `@Entity`: Pelicula, Genero, Usuario, Proyeccion, Reserva
@@ -48,6 +50,7 @@ Tecnologías:
     * Reserva ManyToOne Usuario 
     * Reserva ManyToOne Proyeccion
       * Ticket ManyToOne Reserva (opcional, no haría falta, la reserva ya serviría)
+  * ENTIDADES FINALES: Pelicula, Proyeccion, Sala, Actor, Reserva, Usuario
 
 * Grupo 4: Restaurantes https://github.com/Twinkym/Restaurante
   * Entidades JPA `@Entity`: Restaurante, Plato, Usuario, Reserva, Pedido
@@ -66,6 +69,7 @@ Tecnologías:
     * Plato ManyToOne Menu
     * Plato ManyToOne Categoria
     * Reserva ManyToOne Mesa
+  * ENTIDADES FINALES: Plato, Restaurante, Mesa, Menu, Bebida
 
 * Grupo 5: Biblioteca (La casa del libro) https://github.com/manulibra11996/Biblioteca_java
   * Entidades JPA `@Entity`: Libro, Autor, Categoria, Usuario, Reserva o Compra
@@ -79,6 +83,7 @@ Tecnologías:
     * Libro ManyToOne Categoria
     * Reserva ManyToOne Usuario
     * Reserva ManyToOne Libro
+  * ENTIDADES FINALES: Libro, Autor, Categoria, Socio, Prestamo
 
 Otras ideas: 
 
@@ -129,7 +134,7 @@ Requisitos:
 ### DESARROLLO: PUNTOS OBLIGATORIOS
 
 * Entidades: @Entity
-* Asociaciones: ManyToOne
+* Asociaciones: ManyToOne/OneToMany
 * Repositorios
 * Consultas personalizadas en repositorios con queries derivadas o JPQL en repositorios
 * Controladores MVC con inyección de repositorios, sin servicios, para simplificar
