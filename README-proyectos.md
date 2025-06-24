@@ -6,7 +6,9 @@ Tecnologías:
 * Base de datos: H2 y eventualmente MySQL
 * Git y GitHub
 
-* Grupo 1: Gestor de tareas https://github.com/Mapakitus/gestor-tareas
+* Grupo 1: 
+  * Nombre: GestorTIC
+  * Gestor de tareas https://github.com/Mapakitus/gestor-tareas
   * Entidades JPA `@Entity`: Tarea, Proyecto, Categoria, Usuario, Comentario
   * Paco Gutiérrez
   * Ángel García
@@ -23,8 +25,39 @@ Tecnologías:
     * task-form.html
     * comment-form.html
   * ENTIDADES FINALES: Comment, Project, Task, User
+  * Presentación: 
+    * Presentación de equipo <-- más conciso, centrado en experiencia laboral o de cursos previos y este curso actual
+    * En qué consiste el proyecto, qué problema resuelve? <-- Faltaría esto
+    * Desarrollo seguido
+    * Perfiles de usuario, Usuarios y Project Manager
+    * Modelo de datos <-- Darle más Zoom
+    * Entidades <-- La quitamos
+    * Tecnologías empleadas
+    * Dependencias <-- Es similar al anterior, se puede fusionar
+    * Tecnologías de colaboración
+    * Repositorio Git en GitHub <-- más zoom
+    * Entidades <-- repetido con el que hubo antes?
+    * Responsive en ordenador, mobile, tablet (6 min hasta aquí)
+    * Demo (dar más zoom)
+      * home
+      * registro en popup
+      * iniciar sesion
+      * lista de proyectos
+      * nuevo proyecto formulario
+      * lista de proyecto
+      * editar proyecto y asignar usuarios
+      * ver detalle de proyecto
+      * lista de tareas con filtro <-- poner un container para evitar ancho máximo, responsive
+      * distinción de tareas asignadas a mí y lista de tareas general
+      * pruebas con varios usuarios
+    * Retorno a presentación (otros 6 min hasta aquí)
+    * ¿Qué hemos aprendido?
+    * Objetivos para futuras versiones
+    * Gracias (15 min en total)
 
-* Grupo 2: Ecommerce https://github.com/isrcercas/FA-Proyecto-Final-Ecommerce-Grupo2
+* Grupo 2: 
+  * Nombre: Discommerce Shop
+  * Ecommerce https://github.com/isrcercas/FA-Proyecto-Final-Ecommerce-Grupo2
   * Entidades JPA `@Entity`: Producto, Categoria, Usuario, Compra, DetalleCompra
   * Israel Cervera
   * Antonio Mora
@@ -36,8 +69,33 @@ Tecnologías:
     * DetalleCompra ManyToOne Compra
     * DetalleCompra ManyToOne Producto
   * ENTIDADES FINALES: Categoria, Producto, Usuario, Compra
+  * Presentación
+    * Índice
+    * Presentaciones de equipo
+    * Objetivo del proyecto, qué problema soluciona
+    * Tecnologías utilizadas
+    * Modelo ER con asociaciones
+    * Características clave, funcionalidades, desafíos
+    * Fases del desarrollo 
+    * Captura del repositorio de GitHub o mostrarlo en el navegador
+    * Demo <-- Poner la demo aquí (5 min hasta aquí)
+      * Home que permite navegar a distintas pantallas
+      * Registro usuario
+      * Listado usuarios
+      * Editar usuarios
+      * Lista de categorías
+      * filtros
+      * crear nuevo producto
+      * detalle producto <-- sería interesante poder hacer clic en la categoría y que te lleve al listado de prod filtrado por categoría
+      * crear nueva compra con control de stock
+      * en el listado de productos se podría colorear el stock, en rojo, naranja o verde en función de un umbral: th:if
+      * 10 min hasta aquí
+    * Qué hemos aprendido?
+    * Mejoras y actualizaciones
+    * El jueves empezamos con grupo 2
   
 * Grupo 3: Cartelera de cine https://github.com/ojosdegato/cine
+  * Cinemax
   * Entidades JPA `@Entity`: Pelicula, Genero, Usuario, Proyeccion, Reserva
   * Marcos González
   * David Jiménez
@@ -51,8 +109,22 @@ Tecnologías:
     * Reserva ManyToOne Proyeccion
       * Ticket ManyToOne Reserva (opcional, no haría falta, la reserva ya serviría)
   * ENTIDADES FINALES: Pelicula, Proyeccion, Sala, Actor, Reserva, Usuario
+  * Presentación
+      * Faltaría integrar todo en una presentación y demo
+      * Mockups de las pantallas <-- Reemplazar por la demo real
+      * Lo de AI se podría indicar en la parte de Desarrollos Futuros
+      * Demo:
+      * Home
+      * formulario de crear pelicula
+      * listado de peliculas
+      * tooltip de Ayuda
+      * Filtro por género
+      * Editar película
+      * Detalle de la película <-- Mostrar imagen de la película
+      * Borrar película
 
 * Grupo 4: Restaurantes https://github.com/Twinkym/Restaurante
+  * Web Spanish Restaurant
   * Entidades JPA `@Entity`: Restaurante, Plato, Usuario, Reserva, Pedido
   * Entidades JPA `@Entity`: Restaurante, Mesa, Menu, Plato, Reserva, Categoría
   * Alejandro Dietta
@@ -70,20 +142,57 @@ Tecnologías:
     * Plato ManyToOne Categoria
     * Reserva ManyToOne Mesa
   * ENTIDADES FINALES: Plato, Restaurante, Mesa, Menu, Bebida
+  * Presentación:
+    * Inicio
+    * Equipo
+    * Índice
+    * Definir objetivo global problema que se resuelve
+    * Tecnologías de programacion
+    * Menu
+    * Gestión de resturantes, el código no se ve, igual mejor una captura del github
+    * Arquitectura 
+    * Diagrama de flujo
+    * Diagrama ER
+    * MySQL Workbench
+    * Futuro del proyecto
+    * Demo: (3 min hasta aquí)
+      * Home, ajustar las resoluciones de las imágenes para que no salgan distorsionadas
+      * Menú dropdown
+      * Reducir el número de entidades para conseguir un MVP funcional de CRUD sobre una o dos entidades completo
 
-* Grupo 5: Biblioteca (La casa del libro) https://github.com/manulibra11996/Biblioteca_java
-  * Entidades JPA `@Entity`: Libro, Autor, Categoria, Usuario, Reserva o Compra
-  * Francisco Domínguez
-  * Rafael Sepulveda
-  * Manuel Fernández
-  * Miguel Ángel de Andrés
-  * Laura María Madrigal
-  * Asociaciones:
-    * Libro ManyToOne Author
-    * Libro ManyToOne Categoria
-    * Reserva ManyToOne Usuario
-    * Reserva ManyToOne Libro
-  * ENTIDADES FINALES: Libro, Autor, Categoria, Socio, Prestamo
+* Grupo 5: 
+  * Librocultour
+  * Biblioteca (La casa del libro) https://github.com/manulibra11996/Biblioteca_java
+    * Entidades JPA `@Entity`: Libro, Autor, Categoria, Usuario, Reserva o Compra
+    * Francisco Domínguez
+    * Rafael Sepulveda
+    * Manuel Fernández
+    * Miguel Ángel de Andrés
+    * Laura María Madrigal
+    * Asociaciones:
+      * Libro ManyToOne Author
+      * Libro ManyToOne Categoria
+      * Reserva ManyToOne Usuario
+      * Reserva ManyToOne Libro
+    * ENTIDADES FINALES: Libro, Autor, Categoria, Socio, Prestamo
+    * Presentación
+      * Intro
+      * Equipo, falta descripción de Laura
+      * Introducción y definición
+      * Herramientas bases <-- Cambiar título por Herramientas de desarrollo y poner logos
+      * Diseño de la base de datos
+      * Programación del repositorio <-- Agregar alguna imagen
+      * Desarrollo de la página web <-- Agregar algún logo de las tecnologías
+      * 6 min hasta aquí
+      * Demo (9 min hasta aquí)
+        * Diseño Figma 
+        * Home de libros y autores
+        * Listado de libros
+        * Usuarios
+        * Política de privacidad cookies etc
+      * Pruebas y depuración
+      * Conclusión
+      * Agradecimientos
 
 Otras ideas: 
 
