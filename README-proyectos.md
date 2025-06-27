@@ -54,6 +54,10 @@ Tecnologías:
     * ¿Qué hemos aprendido?
     * Objetivos para futuras versiones
     * Gracias (15 min en total)
+    
+  * FEEDBACK JUEVES:
+    * Muy bien de tiempo
+    * Bien estructurada la presentación
 
 * Grupo 2: 
   * Nombre: Discommerce Shop
@@ -93,7 +97,11 @@ Tecnologías:
     * Qué hemos aprendido?
     * Mejoras y actualizaciones
     * El jueves empezamos con grupo 2
-  
+    
+  * FEEDBACK JUEVES:
+    * Muy bien ajustado al tiempo
+    * Presentación bien estructurada 
+
 * Grupo 3: Cartelera de cine https://github.com/ojosdegato/cine
   * Cinemax
   * Entidades JPA `@Entity`: Pelicula, Genero, Usuario, Proyeccion, Reserva
@@ -122,6 +130,13 @@ Tecnologías:
       * Editar película
       * Detalle de la película <-- Mostrar imagen de la película
       * Borrar película
+  
+  * FEEDBACK JUEVES:
+    * Acompañar el discurso con diapositivas
+    * Agilizar la explicación de herramientas y dependencias
+    * Presentarse todos a la vez
+    * La demostración de la aplicación hacerla a mitad, no al final
+    * Ajustarse mejor al tiempo
 
 * Grupo 4: Restaurantes https://github.com/Twinkym/Restaurante
   * Web Spanish Restaurant
@@ -159,6 +174,12 @@ Tecnologías:
       * Home, ajustar las resoluciones de las imágenes para que no salgan distorsionadas
       * Menú dropdown
       * Reducir el número de entidades para conseguir un MVP funcional de CRUD sobre una o dos entidades completo
+  
+  * FEEDBACK JUEVES:
+    * Ajustarse al tiempo
+    * No mostrar tanto código, mostrar la aplicación
+    * Si se muestra código, cambiar el IDE para que se lea mejor el código
+    * No comentar mucho sobre lo que no os ha dado tiempo, centrarse en lo que sí está hecho
 
 * Grupo 5: 
   * Librocultour
@@ -193,6 +214,9 @@ Tecnologías:
       * Pruebas y depuración
       * Conclusión
       * Agradecimientos
+      
+    * FEEDBACK JUEVES:
+      * Ajustar el tiempo un poquito
 
 Otras ideas: 
 
