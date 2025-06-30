@@ -59,6 +59,11 @@ Tecnologías:
     * Muy bien de tiempo
     * Bien estructurada la presentación
 
+  * FEEDBACK LUNES:
+    * Muy buena introducción
+    * Muy bonitas y personales los agradecimientos
+    * Bien de tiempo
+
 * Grupo 2: 
   * Nombre: Discommerce Shop
   * Ecommerce https://github.com/isrcercas/FA-Proyecto-Final-Ecommerce-Grupo2
@@ -100,7 +105,11 @@ Tecnologías:
     
   * FEEDBACK JUEVES:
     * Muy bien ajustado al tiempo
-    * Presentación bien estructurada 
+    * Presentación bien estructurada
+    
+  * FEEDBACK LUNES:
+    * Bien de tiempo
+    * Muy bien la demo
 
 * Grupo 3: Cartelera de cine https://github.com/ojosdegato/cine
   * Cinemax
@@ -181,6 +190,10 @@ Tecnologías:
     * Si se muestra código, cambiar el IDE para que se lea mejor el código
     * No comentar mucho sobre lo que no os ha dado tiempo, centrarse en lo que sí está hecho
 
+  * FEEDBACK LUNES:
+    * Bien de tiempo
+    * Tener preparada la aplicación funcionando
+
 * Grupo 5: 
   * Librocultour
   * Biblioteca (La casa del libro) https://github.com/manulibra11996/Biblioteca_java
@@ -217,6 +230,11 @@ Tecnologías:
       
     * FEEDBACK JUEVES:
       * Ajustar el tiempo un poquito
+      
+    * FEEDBACK LUNES:
+      * Mostrar sólo la presentación
+      * Practicar los cambios de persona que presenta
+      * Bien de tiempo
 
 Otras ideas: 
 
