@@ -63,6 +63,9 @@ Tecnologías:
     * Muy buena introducción
     * Muy bonitas y personales los agradecimientos
     * Bien de tiempo
+    
+  * FEEDBACK MARTES:
+    * Bien de tiempo
 
 * Grupo 2: 
   * Nombre: Discommerce Shop
@@ -111,6 +114,9 @@ Tecnologías:
     * Bien de tiempo
     * Muy bien la demo
 
+  * FEEDBACK MARTES:
+    *Muy bien de tiempo (14:30)
+
 * Grupo 3: Cartelera de cine https://github.com/ojosdegato/cine
   * Cinemax
   * Entidades JPA `@Entity`: Pelicula, Genero, Usuario, Proyeccion, Reserva
@@ -146,6 +152,10 @@ Tecnologías:
     * Presentarse todos a la vez
     * La demostración de la aplicación hacerla a mitad, no al final
     * Ajustarse mejor al tiempo
+
+  * FEEDBACK MARTES:
+    * Controlar el tiempo, acortar algunas secciones
+    * Hablar un poco menos sobre el cómo se ha creado el logo
 
 * Grupo 4: Restaurantes https://github.com/Twinkym/Restaurante
   * Web Spanish Restaurant
@@ -234,6 +244,10 @@ Tecnologías:
     * FEEDBACK LUNES:
       * Mostrar sólo la presentación
       * Practicar los cambios de persona que presenta
+      * Bien de tiempo
+
+    * FEEDBACK MARTES:
+      * Asegurarse de que funcione lo que vais a mostrar de la aplicación
       * Bien de tiempo
 
 Otras ideas: 
